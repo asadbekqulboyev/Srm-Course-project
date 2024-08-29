@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Container } from './style'
 function Navbar() {
   return (
     <Container>Navbar</Container>

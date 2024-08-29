@@ -1,9 +1,21 @@
 import React from 'react'
-import { Container } from './style'
+import { Outlet } from 'react-router-dom'
+import { Body, Container, Side,Wrapper } from './style'
+import Navbar from '../Navbar'
 
 function Sidebar() {
   return (
-    <Container>Sidebar</Container>
+    <Container>
+      <Side>Side</Side>
+
+      <Body>
+        <Navbar>Navbar</Navbar>
+        <Wrapper>
+        <Outlet />
+
+        </Wrapper>
+      </Body>
+    </Container>
   )
 }
 
