@@ -1,10 +1,8 @@
 import React from 'react'
 import { Container } from './style'
 
-function Sidebar() {
+export const  Generics = () =>{
   return (
-    <Container>Sidebar</Container>
+    <Container>Generics</Container>
   )
 }
-
-export default Sidebar
