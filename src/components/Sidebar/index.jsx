@@ -1,26 +1,29 @@
 import React from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import Profile from './profile'
-import { Body, Container, Side, Wrapper, Logo, LogOut,Menu ,MenuItem,Arrow,ChildWrapper} from './style'
+import { Body, Container, Side, Wrapper, Logo, LogOut, Menu, MenuItem, Arrow, ChildWrapper } from './style'
 import Navbar from '../Navbar'
 import sidebar from '../../utils/sidebar'
 import { useState } from 'react'
 function Sidebar() {
-  const [open,setOpen]=useState([])
+  const [open, setOpen] = useState([])
   const navigate = useNavigate()
   const logoClick = () => {
     navigate('/');
   }
-  const onClickParent= (id)=>{
-    if(open.includes(id)){
+  const logOutClick = () => {
+    navigate('/');
+  }
+  const onClickParent = (id) => {
+    if (open.includes(id)) {
 
-      let data = open.filter((val)=>val!==id)
+      let data = open.filter((val) => val !== id)
       setOpen(data)
-    }else{
-      setOpen([...open,id])
+    } else {
+      setOpen([...open, id])
     }
     console.log(open);
-    
+
   }
   return (
     <Container>
@@ -30,41 +33,37 @@ function Sidebar() {
         <Menu>
           {
             sidebar.map((parent) => {
-              const {icon: Icon}=parent
+              const { icon: Icon } = parent
               // console.log(Icon);
-              let actives= open.includes(parent.id)
+              let actives = open.includes(parent.id)
               return (
-                <> 
-                <MenuItem key={parent.id} onClick={()=>onClickParent(parent.id)}>
-                 <MenuItem.Title>
-                 {Icon && <Icon/>}
-                 {parent.title}
-                 </MenuItem.Title>
-                 {parent?.children?.length&&<Arrow active={actives} />}
-                </MenuItem>
-                <ChildWrapper active={actives}>
-                {parent?.children?.map((child)=>{
-                  return <MenuItem key={child.id}>
-                <MenuItem.Title> {child?.title}</MenuItem.Title> 
+                <>
+                  <MenuItem key={parent.id} onClick={() => onClickParent(parent.id)}>
+                    <MenuItem.Title>
+                      {Icon && <Icon />}
+                      {parent.title}
+                    </MenuItem.Title>
+                    {parent?.children?.length && <Arrow active={actives} />}
                   </MenuItem>
-                  
+                  <ChildWrapper active={actives}>
+                    {parent?.children?.map((child) => {
+                      return (
+                        <MenuItem key={child.id}>
+                          <MenuItem.Title> {child?.title}</MenuItem.Title>
+                        </MenuItem>)
+                    })}
+                  </ChildWrapper>
 
-                })}
-                </ChildWrapper>
-                
                 </>
-               
-            )
+
+              )
             })
           }
 
         </Menu>
 
-        <LogOut>Chiqish</LogOut>
-
+        <LogOut onClick={logOutClick}>Chiqish</LogOut>
       </Side>
-
-
       <Body>
         <Navbar>Navbar</Navbar>
         <Wrapper>
