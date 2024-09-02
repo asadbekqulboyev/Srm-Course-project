@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import arrow from '../../assets/icons/rightArrow.svg?react'
+import exit from '../../assets/icons/exit.svg?react'
+import { NavLink } from "react-router-dom";
 const Arrow = styled(arrow)`
 display: flex;
 margin-left: auto;
@@ -44,11 +46,18 @@ cursor: pointer;
 const LogOut = styled(Logo)`
 display: flex;
 position: sticky;
+align-items:center;
 margin-top:auto;
 bottom: 0;
+gap: 16px;
 border-bottom: 0;
 border-top: 1px solid #F8FAFC;
 background-color:#fff;
+font-size: 14px;
+font-weight: 500;
+line-height: 20px;
+text-align: left;
+color: var(--Color );
 `
 const ProfileContainer = styled.div`
 display: flex;
@@ -84,13 +93,15 @@ const Menu =styled.div`
 display: flex;
 flex-direction: column;
 `
-const MenuItem =styled.div`
+const MenuItem =styled(NavLink)`
 display: flex;
+text-decoration: none;
+color: var(--Color);
 cursor: pointer;
 align-items: center;
 transition: all .2s linear;
 padding-right: 24px;
-path{transition:all .2s linear;
+svg path{transition:all .2s linear;
 
 }
 &:hover{
@@ -114,7 +125,10 @@ padding: 12px 0 12px 24px;
 const ChildWrapper = styled.div`
 padding-left:34px;
 transition:all .2s linear;
-max-height:${({active})=>active?'fit-content':'0px'};
+max-height:${({active})=>active?'fit-content':'0'};
 overflow: hidden;
 `
-export {Container,Side, Body,Wrapper,Logo,LogOut, ProfileContainer, Menu, MenuItem,Arrow,ChildWrapper}
+const ExitIcon = styled(exit)`
+
+`
+export {Container,Side, Body,Wrapper,Logo,LogOut, ProfileContainer, Menu, MenuItem,Arrow,ChildWrapper,ExitIcon}
