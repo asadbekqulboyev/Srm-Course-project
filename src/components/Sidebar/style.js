@@ -6,7 +6,7 @@ const Arrow = styled(arrow)`
 display: flex;
 margin-left: auto;
 transition: all .2s linear;
-transform:${({active})=>active?'rotate(90deg)':'rotate(0deg)'};
+transform:${({active})=>active=='true'?'rotate(90deg)':'rotate(0deg)'};
 `
 const Container  = styled.div`
 display:flex;
@@ -94,21 +94,22 @@ display: flex;
 flex-direction: column;
 `
 const MenuItem =styled(NavLink)`
+cursor: pointer;
 display: flex;
 text-decoration: none;
 color: var(--Color);
-cursor: pointer;
 align-items: center;
 transition: all .2s linear;
 padding-right: 24px;
+background:${({active})=>active=='true'&&'#F8FAFC'};
+color:${({active})=>active=='true'&&'var(--ActiveColor)'};
 svg path{transition:all .2s linear;
-
+fill:${({active})=>active=='true'&&'var(--ActiveColor)'};
 }
 &:hover{
     background:#F8FAFC;
     color: var(--ActiveColor);
-    path{
-        fill: var(--ActiveColor);
+    path{fill: var(--ActiveColor);
     }
 }
 `
@@ -125,7 +126,7 @@ padding: 12px 0 12px 24px;
 const ChildWrapper = styled.div`
 padding-left:34px;
 transition:all .2s linear;
-max-height:${({active})=>active?'fit-content':'0'};
+max-height:${({active})=>active=='true'?'fit-content':'0'};
 overflow: hidden;
 `
 const ExitIcon = styled(exit)`

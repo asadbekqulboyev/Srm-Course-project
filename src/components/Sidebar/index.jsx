@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import Profile from './profile'
 import { Body, Container, Side, Wrapper, Logo, LogOut, Menu, MenuItem, Arrow, ChildWrapper ,ExitIcon} from './style'
@@ -8,6 +8,10 @@ import { useState } from 'react'
 function Sidebar() {
   const [open, setOpen] = useState([])
   const navigate = useNavigate()
+  useEffect(()=>{
+    const path=JSON.parse(localStorage.getItem('open'))
+    setOpen(path||[])
+  },[])
   const logoClick = () => {
     navigate('/');
   }
@@ -17,6 +21,7 @@ function Sidebar() {
   const onClickParent = ({id,children,path },e) => {
     if (open?.includes(id)) {
       let data = open.filter((val) => val !== id)
+      localStorage.setItem('open',JSON.stringify(data))
       setOpen(data)
     } else {
       setOpen([...open, id])
@@ -36,16 +41,17 @@ function Sidebar() {
           {sidebar.map((parent) => {
               const { icon: Icon } = parent
               let active =open?.includes(parent.id)
+              const activePath= location.pathname?.includes(parent?.path)
               return (
-                <div key={parent.id}>
-                  <MenuItem  onClick={(e) => onClickParent(parent,e)} >
+                <React.Fragment key={parent.id}>
+                  <MenuItem  onClick={(e) => onClickParent(parent,e)}  active={activePath.toString()}>
                     <MenuItem.Title>
                       {Icon && <Icon />}
                       {parent.title}
                     </MenuItem.Title>
-                    {parent?.children?.length && <Arrow active={active} />}
+                    {parent?.children?.length && <Arrow active={active.toString()} />}
                   </MenuItem>
-                  <ChildWrapper active={active}>
+                  <ChildWrapper active={active.toString()}>
                     {parent?.children?.map((child) => {
                       return (
                         <MenuItem key={child.id} to={child?.path}>
@@ -55,7 +61,7 @@ function Sidebar() {
                     })}
                   </ChildWrapper>
                 
-                </div>
+                </React.Fragment>
                
               )
             })
