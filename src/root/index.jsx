@@ -8,28 +8,25 @@ function Root() {
     return (
         <Container>
             <Routes>
-                
                 <Route element={<Sidebar/>}>
                 {sidebar.map((parent) => {
                     const ElementParent = parent.element
                     if (parent?.children?.length) {
+
                       return  parent.children.map((child)=>{
                          const ElementChild = child.element
                             return(
-                            <Route key={parent.id} path={parent.path} element={<ElementChild/>}/>
+                            <Route key={child.id} path={child.path} element={<ElementChild/>}/>
                             )
                           })  
                         }else
-                    return (
+                    return !parent.hidden&& (
                         <Route key={parent.id} path={parent.path} element={<ElementParent/>}/>
                     )
                 })}
                 </Route>
                 <Route path='*' element={<Navigate to={'/analitika'}/>}/>
-                 <Route path='*' element={<h1>404</h1>} />
-
-
-
+                <Route path='*' element={<h1>404</h1>} /> 
             </Routes>
         </Container>
     )

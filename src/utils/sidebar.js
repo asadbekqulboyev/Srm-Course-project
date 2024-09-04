@@ -80,7 +80,7 @@ const sidebar = [
     isPrivate: true,
     icon: Finance,
     element: Generics,
-    hidden: true,
+    // hidden: true,
     role: ["admin"],
   },
   {

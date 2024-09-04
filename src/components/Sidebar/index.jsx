@@ -24,6 +24,7 @@ function Sidebar() {
       localStorage.setItem('open',JSON.stringify(data))
       setOpen(data)
     } else {
+      localStorage.setItem('open',JSON.stringify([...open, id]))
       setOpen([...open, id])
     }
     
@@ -40,7 +41,7 @@ function Sidebar() {
         <Menu>
           {sidebar.map((parent) => {
               const { icon: Icon } = parent
-              let active =open?.includes(parent.id)
+              const active =open?.includes(parent.id)
               const activePath= location.pathname?.includes(parent?.path)
               return (
                 <React.Fragment key={parent.id}>
@@ -51,10 +52,11 @@ function Sidebar() {
                     </MenuItem.Title>
                     {parent?.children?.length && <Arrow active={active.toString()} />}
                   </MenuItem>
+                  
                   <ChildWrapper active={active.toString()}>
                     {parent?.children?.map((child) => {
                       return (
-                        <MenuItem key={child.id} to={child?.path}>
+                        <MenuItem key={child.id} to={child?.path} active={(location.pathname==child.path).toString()}>
                           <MenuItem.Title> {child?.title}</MenuItem.Title>
                         </MenuItem>
                       )
@@ -62,7 +64,6 @@ function Sidebar() {
                   </ChildWrapper>
                 
                 </React.Fragment>
-               
               )
             })
           }
