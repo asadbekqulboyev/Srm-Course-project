@@ -16,7 +16,7 @@ function Sidebar() {
     navigate('/');
   }
   const logOutClick = () => {
-    navigate('/');
+    navigate('/login');
   }
   const onClickParent = ({id,children,path },e) => {
     if (open?.includes(id)) {

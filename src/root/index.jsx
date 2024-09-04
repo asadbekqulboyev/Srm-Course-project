@@ -25,7 +25,15 @@ function Root() {
                     )
                 })}
                 </Route>
-                <Route path='*' element={<Navigate to={'/analitika'}/>}/>
+                {sidebar.map((parent)=>{
+                    const ElementParent = parent.element
+                    return(
+                        parent?.hidden && (
+                            <Route key={parent.id} path={parent.path} element={<ElementParent/>}/>
+                        )
+                    )
+                })}
+                <Route path='/' element={<Navigate to={'/analitika'}/>}/>
                 <Route path='*' element={<h1>404</h1>} /> 
             </Routes>
         </Container>
