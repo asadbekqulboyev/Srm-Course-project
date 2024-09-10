@@ -2,6 +2,7 @@ import React from 'react'
 import Time from './time'
 import SelectSection from './Select'
 import { Container ,InputWrapper,Input,SearchIcon,Section} from './style'
+import DateTimePicker from './DateTimePicker'
 function Navbar() {
   return (
     <Container>
@@ -10,8 +11,11 @@ function Navbar() {
       <Input placeholder='Search'/>
       </InputWrapper>
       <Section>
+     
+      <Time /> 
+      <DateTimePicker/>
       <SelectSection/>
-      <Time />
+      
       </Section>
     </Container>
   )

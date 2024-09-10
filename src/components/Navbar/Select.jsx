@@ -7,14 +7,14 @@ function SelectSection() {
  }
       return (
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Language</InputLabel>
+          <InputLabel style={{top: '-6px',width:'100%'}} id="demo-simple-select-label" >Language</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={lang}
             label="Age"
             onChange={handleChange}
-            style={{width:'150px'}}
+            style={{width:'270px',flex:'0 0 auto'}}
           >
             <MenuItem value='Uzbekcha'>Uzbekcha</MenuItem>
             <MenuItem value='Ruscha'>Ruscha</MenuItem>
