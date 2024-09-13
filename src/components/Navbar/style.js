@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import search from '../../assets/icons/search.svg?react'
-
+const getValue = (value)=>{
+    switch(typeof value){
+        case 'string': return value;
+        break
+        case 'number': return `${value}px`
+        default :return null
+    }
+}
 
 export const Container = styled.div`
 display: flex;
@@ -12,9 +19,9 @@ padding: 10px 16px 10px 24px;
 justify-content: space-between;
 flex-wrap: wrap;
 gap: 20px;
-width: ${({ width }) => width && (typeof width == 'string' ? width : `${width}+px`)};
-max-width: ${({ width }) => width && (typeof width == 'string' ? width : `${width}+px`)};
-height: ${({ height }) => height && (typeof height == 'string' ? height : `${height}+px`)};
+width: ${({ width }) => width && getValue(width)};
+
+height: ${({ height }) => height &&  getValue(height)};
 `
 const InputWrapper = styled.div`
 border: 1px solid #F0F0F0;
@@ -26,25 +33,28 @@ max-width: 500px;
 flex:1;
 `
 export const Input = styled.input`
+flex:1;
 outline: 0;
 padding: 10px 16px 10px 0;
 width: auto;
-border-radius: 8px;
 border:0;
 font-size: 14px;
 font-weight: 500;
 line-height: 20px;
-font-size: ${({ fontSize }) => fontSize && (typeof fontSize == 'string' ? fontSize : `${fontSize}+px`)};
-line-height: ${({ lineHeight }) => lineHeight && (typeof lineHeight == 'string' ? lineHeight : `${lineHeight}+px`)};
-font-weight: ${({ fWeight }) => fWeight && (typeof fWeight == 'string' ? fWeight : `${fontSize}`)};
-width: ${({ width }) => width && (typeof width == 'string' ? width : `${width}+px`)};
-max-width: ${({ width }) => width && (typeof width == 'string' ? width : `${width}+px`)};
-height: ${({ height }) => height && (typeof height == 'string' ? height : `${height}+px`)};
-border-radius: ${({ borderRadius }) => borderRadius && (typeof borderRadius == 'string' ? borderRadius : `${borderRadius}+px`)};
+font-size: ${({ fontSize }) => fontSize && getValue(fontSize)};
+line-height: ${({ lineHeight }) => lineHeight && getValue(lineHeight)};
+font-weight: ${({ fWeight }) => fWeight &&getValue(fWeight)};
+width: ${({ width }) => width && getValue(width)};
+max-width: ${({ width }) => width &&  getValue(width)};
+border-radius: ${({ borderRadius }) => getValue(borderRadius)};
 color: ${({ color }) => (color ? color : '#BBC3CD')};
 
 
 &::placeholder{
+font-size: ${(placeholderStyle) =>getValue(placeholderStyle?.fontSize)};
+line-height: ${(placeholderStyle) =>getValue(placeholderStyle?.lineHeight)};
+font-weight: ${(placeholderStyle) =>getValue(placeholderStyle?.fWeight)};
+color: ${({ color }) => (color ? color : '#BBC3CD')};
     color: ${({ placeholderStyle }) => placeholderStyle?.color ? placeholderStyle?.color : '#BBC3CD'};
     font-size: ${({ placeholderStyle }) => placeholderStyle?.fontSize && (typeof placeholderStyle?.fontSize == 'string' ? placeholderStyle?.fontSize : `${placeholderStyle?.fontSize}+px`)};
 line-height: ${({ placeholderStyle }) => placeholderStyle?.lineHeight && (typeof placeholderStyle?.lineHeight == 'string' ? placeholderStyle?.lineHeight : `${placeholderStyle?.lineHeight}+px`)};

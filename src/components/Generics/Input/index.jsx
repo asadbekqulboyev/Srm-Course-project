@@ -5,7 +5,7 @@ const GenriscInput = (props) => {
     const {iconLeft,iconRight}=props
   return (
     <>{iconLeft && iconLeft}
-        <Input width={500} {...props} />
+        <Input width={500} borderRadius={8} {...props} />
         {iconRight && iconRight}
     </>
         

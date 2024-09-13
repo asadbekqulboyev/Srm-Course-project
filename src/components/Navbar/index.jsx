@@ -8,7 +8,6 @@ function Navbar() {
   return (
     <Container>
       <InputWrapper>
-      
       <Input placeholder='Search' iconLeft={<SearchIcon/>}/>
       </InputWrapper>
       <Section>
