@@ -4,8 +4,8 @@ import { Container, Input } from '../../Navbar/style'
 const GenriscInput = (props) => {
     const {iconLeft,iconRight}=props
   return (
-    <>{iconLeft && iconLeft}
-        <Input width={500} borderRadius={8} {...props} />
+    <>  {iconLeft && iconLeft}
+        <Input {...props} />
         {iconRight && iconRight}
     </>
         

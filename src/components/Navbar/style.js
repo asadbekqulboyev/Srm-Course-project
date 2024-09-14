@@ -1,15 +1,10 @@
 import styled from "styled-components";
 import search from '../../assets/icons/search.svg?react'
-const getValue = (value)=>{
-    switch(typeof value){
-        case 'string': return value;
-        break
-        case 'number': return `${value}px`
-        default :return null
-    }
-}
+import getValue from "../../hooks/getStyleValue";
 
 export const Container = styled.div`
+position: sticky;
+top: 0;
 display: flex;
 align-items: center;
 background:#fff;

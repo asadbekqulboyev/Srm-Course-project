@@ -10,6 +10,8 @@ transform:${({active})=>active=='true'?'rotate(90deg)':'rotate(0deg)'};
 `
 const Container  = styled.div`
 display:flex;
+position: sticky;
+top: 0;
 ` 
 const Side = styled.div`
 width:280px ;
@@ -38,10 +40,14 @@ const Logo=styled.div`
 font-size: 20px;
 font-weight: 600;
 line-height: 28px;
+position: sticky;
+top: 0;
+background:#fff;
 color: #1890FF;
 padding: 16px 0 16px 24px;
 border-bottom: 1px solid #F8FAFC;
 cursor: pointer;
+z-index: 12;
 `
 const LogOut = styled(Logo)`
 display: flex;
