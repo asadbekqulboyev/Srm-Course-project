@@ -13,6 +13,7 @@ const Container = styled.div`
 height: calc(100vh - 99px) ;
 border-radius:8px;
 overflow-y:auto;
+padding: 24px;
 &::-webkit-scrollbar{
    width:5px;
 }
@@ -58,6 +59,9 @@ align-items: center;
    padding: 8px;
    background-color:${({title})=>getColor(title)?.color};
 }
+.subicon{
+
+}
 `
 export const Plus = styled(Wrapper)`
 &::before{
@@ -79,11 +83,15 @@ export const Plus = styled(Wrapper)`
 `
 export const Counter= styled(Title)`
 font-size: 40px;
+font-weight: 600;
 `
 export const Arrow= styled(arrowUp)`
 width: 16px;
 height: 16px;
 margin-right: 13px;
 `
-
+export const SubCard = styled(Card)`
+border: 1px solid #F0F0F0;
+padding-bottom: 20px;
+`
 export { Container, Wrapper, Card }

@@ -1,8 +1,8 @@
 import React from 'react'
 import SubTitle from '../Generics/SubTitle'
-import { Container,Wrapper ,Card,Section,Plus,Counter,Arrow} from './style'
+import { Container,Wrapper ,Card,Section,Plus,Counter,Arrow,SubCard} from './style'
 import Title from '../Generics/Title'
-import { privateData } from '../../utils/analitics'
+import { mediaIcon, privateData } from '../../utils/analitics'
 function Analitika() {
   return (
     <Container>
@@ -16,7 +16,7 @@ function Analitika() {
               <Section gap={24}>
               <Section gap={20}  title={value.title}>
                   <Icon className='icon'/> 
-                  <Title>
+                  <Title type='primary'>
                    { value.title}
                   </Title> 
                 </Section>
@@ -37,8 +37,31 @@ function Analitika() {
         <SubTitle mt={24}> 
         Ijtimoiy tarmoqlar
         </SubTitle>
-        <Wrapper mt={16}>
-        
+        <Wrapper mt={16} gap={24}>
+        {mediaIcon?.map((value)=>{
+          const {icon:Icon}=value
+          return(
+            <SubCard key={value.id} gap={24} title={value.title}>
+              <Section gap={24}>
+              <Section gap={10}  title={value.title}>
+                  <Icon className='subicon'/> 
+                  <SubTitle>
+                   { value.title}
+                  </SubTitle> 
+                </Section>
+              </Section>
+              <Section>
+              <Section gap={20}>
+                  <Title type='primary' color="#52C41A">
+                  <Arrow/> 
+                  22%
+                  </Title> 
+                  <Counter >{value.count}K</Counter>
+                </Section>
+              </Section>
+            </SubCard>
+          )
+        })}
         </Wrapper>
     </Container>
   )
