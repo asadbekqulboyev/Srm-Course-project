@@ -9,6 +9,7 @@ import HR from "../assets/icons/hr.svg?react";
 import Settings from "../assets/icons/setting.svg?react";
 // Components
 import { Generics } from "../view/Generics";
+import { AnalitikaView } from "../view/AnalitikaView";
 // import { AnalitikaView } from "../view/AnalitikaView";
 // import FirstClassView from "../view/Lids/First";
 // import AllLidsView from "../view/Lids/All";
@@ -32,7 +33,7 @@ const sidebar = [
     path: "/analitika",
     icon: Analitika,
     isPrivate: true,
-    element: Generics,
+    element: AnalitikaView,
     role: ["admin", "manager"],
   },
   {
@@ -80,7 +81,7 @@ const sidebar = [
     isPrivate: true,
     icon: Finance,
     element: Generics,
-    hidden: true,
+    // hidden: true,
     role: ["admin"],
   },
   {

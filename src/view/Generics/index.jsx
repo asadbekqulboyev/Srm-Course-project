@@ -7,7 +7,6 @@ export const  Generics = () =>{
   return (
     <Container>
       {location.pathname}
-      bnhnihyj
     </Container>
   )
 }
