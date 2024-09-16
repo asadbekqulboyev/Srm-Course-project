@@ -12,6 +12,7 @@
   box-sizing: border-box;
 }
 body {
+  overflow: hidden;
   background-color: #FAFAFA;
   font-family: 'Montserrat';
   color: var(--Color);

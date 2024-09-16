@@ -35,6 +35,7 @@ flex: 1;
 const Wrapper = styled.div`
 margin: 16px;
 background-color: #FFFFFF;
+border-radius:8px;
 `
 const Logo=styled.div`
 font-size: 20px;
