@@ -14,6 +14,18 @@ padding-top: ${({pt})=>getValue(pt)};
 padding-bottom: ${({pb})=>getValue(pb)};
 padding-left: ${({pl})=>getValue(pl)};
 padding-right: ${({pr})=>getValue(pr)};
+color: ${({color})=>(color?color:'#253E5F')};
 ` 
-
-export {Container}
+const Counter = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 28px;
+height: 28px;
+margin-left: 8px;
+font-size: 12px;
+color: #fff;
+background:var(--ActiveColor);
+border-radius: 50%;
+`
+export {Container,Counter}

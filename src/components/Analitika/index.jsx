@@ -1,8 +1,10 @@
 import React from 'react'
 import SubTitle from '../Generics/SubTitle'
-import { Container,Wrapper ,Card,Section,Plus,Counter,Arrow,SubCard} from './style'
+import { Container,Wrapper ,Card,Section,Plus,Counter,Arrow,SubCard,FooterWrapper} from './style'
 import Title from '../Generics/Title'
+import Email from './Email'
 import { mediaIcon, privateData } from '../../utils/analitics'
+import Moliya from './Moliya'
 function Analitika() {
   return (
     <Container>
@@ -63,6 +65,24 @@ function Analitika() {
           )
         })}
         </Wrapper>
+
+        <FooterWrapper>
+         <FooterWrapper.Email>
+         <SubTitle mt={24} count={12}> 
+        Ijtimoiy tarmoqlar
+        </SubTitle>
+         <Email />
+         </FooterWrapper.Email>
+         
+        <FooterWrapper.Moliya>
+         <SubTitle mt={24} > 
+        Ijtimoiy tarmoqlar
+        </SubTitle>
+         <Moliya />
+         </FooterWrapper.Moliya>
+        </FooterWrapper>
+        
+        
     </Container>
   )
 }
