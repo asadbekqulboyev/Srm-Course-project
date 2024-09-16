@@ -68,14 +68,14 @@ function Analitika() {
 
         <FooterWrapper>
          <FooterWrapper.Email>
-         <SubTitle mt={24} count={12}> 
+         <SubTitle mt={24} count={12} mb={12}> 
         Ijtimoiy tarmoqlar
         </SubTitle>
          <Email />
          </FooterWrapper.Email>
          
         <FooterWrapper.Moliya>
-         <SubTitle mt={24} > 
+         <SubTitle mt={24}  mb={12}> 
         Ijtimoiy tarmoqlar
         </SubTitle>
          <Moliya />

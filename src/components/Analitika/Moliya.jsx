@@ -1,4 +1,5 @@
 import React from 'react'
+import SubTitle from '../Generics/SubTitle'
 import {  Wrapper,Fragment,ArrowIcon } from './moliyaStyle'
 
 function Moliya() {
@@ -6,6 +7,9 @@ function Moliya() {
     <Wrapper>
       <Fragment>
       <ArrowIcon left/>
+      <SubTitle>
+        May 13
+      </SubTitle>
       <ArrowIcon />
       </Fragment>
     </Wrapper>
