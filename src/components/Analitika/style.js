@@ -13,6 +13,8 @@ const Container = styled.div`
 height: calc(100vh - 99px) ;
 border-radius:8px;
 overflow-y:auto;
+width: auto;
+overflow-x:auto;
 padding: 24px;
 &::-webkit-scrollbar{
    width:5px;
