@@ -3,7 +3,7 @@ import getValue from "../../../hooks/getStyleValue";
 
 const Container  = styled.div`
 display:flex;
-font-size:16px;
+font-size:${({size})=>getValue(size,'16px')};
 font-weight:500;
 line-height: 24px;
 margin-top:${({mt})=>getValue(mt)};
