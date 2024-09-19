@@ -14,10 +14,10 @@ function Moliya() {
   }
 
   const onClickForward = ()=>{
-    changeWeek(weekCount+6)
+    changeWeek(weekCount+2)
   }
   const onClickBackward = ()=>{
-    changeWeek(weekCount-6)
+    changeWeek(weekCount-2)
   }
   return (
     <Wrapper>
@@ -41,7 +41,7 @@ function Moliya() {
       <SubTitle color='#929FAF'>
         {date.date} - {date?.month?.full} {date.year}
       </SubTitle>
-      <SubTitle size={32} mt={5} mb={20}>8 520 000 <SubTitle size={24} color='#53c41a' ml={16}>+22%</SubTitle> </SubTitle>
+      <SubTitle size={32} mt={10} mb={20}>8 520 000 <SubTitle size={24} color='#53c41a' ml={16}>+22%</SubTitle> </SubTitle>
       <Fragment>
         <div>Talabalar</div>
         <SubTitle>

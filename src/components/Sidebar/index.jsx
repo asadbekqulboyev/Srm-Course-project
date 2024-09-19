@@ -18,7 +18,8 @@ function Sidebar() {
   const logOutClick = () => {
     navigate('/login');
   }
-  const onClickParent = ({id,children,path },e) => {
+  const onClickParent = ({id,children,path,title },e) => {
+    e.preventDefault();
     if (open?.includes(id)) {
       let data = open.filter((val) => val !== id)
       localStorage.setItem('open',JSON.stringify(data))
@@ -29,9 +30,13 @@ function Sidebar() {
     }
     
     if (!children) {
-      e.preventDefault();
-      navigate(path)
+     
+      navigate(path,{state:{parent:title}})
     }
+  }
+  const onClickChild = (parent, child,path,e)=>{
+    e.preventDefault()
+    navigate(path,{state:{parent,child}})
   }
   return (
     <Container>
@@ -43,7 +48,7 @@ function Sidebar() {
               const { icon: Icon } = parent
               const active =open?.includes(parent.id)
               const activePath= location.pathname?.includes(parent?.path)
-              return (
+              return !parent.hidden && (
                 <React.Fragment key={parent.id}>
                   <MenuItem  onClick={(e) => onClickParent(parent,e)}  active={activePath.toString()}>
                     <MenuItem.Title>
@@ -52,11 +57,12 @@ function Sidebar() {
                     </MenuItem.Title>
                     {parent?.children?.length && <Arrow active={active.toString()} />}
                   </MenuItem>
-                  
                   <ChildWrapper active={active.toString()}>
                     {parent?.children?.map((child) => {
                       return (
-                        <MenuItem key={child.id} to={child?.path} active={(location.pathname==child.path).toString()}>
+                        <MenuItem key={child.id} to={child?.path} active={(location.pathname==child.path).toString()}
+                        onClick={(e)=>onClickChild(parent.title, child.title,child.path,e)}
+                        >
                           <MenuItem.Title> {child?.title}</MenuItem.Title>
                         </MenuItem>
                       )
