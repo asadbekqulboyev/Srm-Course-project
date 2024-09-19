@@ -48,7 +48,7 @@ function Sidebar() {
               const { icon: Icon } = parent
               const active =open?.includes(parent.id)
               const activePath= location.pathname?.includes(parent?.path)
-              return (
+              return !parent.hidden && (
                 <React.Fragment key={parent.id}>
                   <MenuItem  onClick={(e) => onClickParent(parent,e)}  active={activePath.toString()}>
                     <MenuItem.Title>
@@ -57,7 +57,6 @@ function Sidebar() {
                     </MenuItem.Title>
                     {parent?.children?.length && <Arrow active={active.toString()} />}
                   </MenuItem>
-                  
                   <ChildWrapper active={active.toString()}>
                     {parent?.children?.map((child) => {
                       return (

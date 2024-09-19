@@ -8,7 +8,6 @@ function BreadCrumbs() {
     <Container title={location.state?.parent}>
         <Title>{location.state?.parent}</Title>
         {location.state?.child && <Arrow />}
-        
         <SubTitle>{location.state?.child}</SubTitle>
     </Container>
   )
