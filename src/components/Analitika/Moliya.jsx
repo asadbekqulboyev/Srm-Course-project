@@ -14,10 +14,10 @@ function Moliya() {
   }
 
   const onClickForward = ()=>{
-    changeWeek(weekCount+6)
+    changeWeek(weekCount+2)
   }
   const onClickBackward = ()=>{
-    changeWeek(weekCount-6)
+    changeWeek(weekCount-2)
   }
   return (
     <Wrapper>
