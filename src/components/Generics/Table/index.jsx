@@ -7,7 +7,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 function EnhancedTableHead(props) {
@@ -29,10 +28,9 @@ function EnhancedTableHead(props) {
         </TableCell>
         {headCells.map((headCell) => (
           <TableCell
+            sx={{color:'#929FAF'}}
             key={headCell.id}>
-            <TableSortLabel>
               {headCell.label}
-            </TableSortLabel>
           </TableCell>
         ))}
       </TableRow>
@@ -73,6 +71,18 @@ export function GenericTable(props) {
   
   return (
     <Box sx={{ width: '100%' }}>
+      <Box sx={{ marginTop: '24px', border: 0 }}>
+        <Table>
+          <TableBody>
+            <TableRow>
+              <TableCell>Test</TableCell>
+              <TableCell>Test</TableCell>
+              <TableCell>Test</TableCell>
+              <TableCell>Test</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </Box>
       <Paper sx={{ width: '100%', mb: 2 }}>
         <TableContainer>
           <Table
