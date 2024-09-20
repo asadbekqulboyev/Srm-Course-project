@@ -1,5 +1,8 @@
+import BreadCrumbs from "../../Generics/BreadCrumbs";
+import GenericButton from "../../Generics/Button";
 import { GenericTable } from "../../Generics/Table"
 import { Container } from "./style"
+import {useState}from 'react'
 
 export const Allids = () => {
     const rows = [
@@ -17,9 +20,19 @@ export const Allids = () => {
         { id: 'addedDate', label: 'Qo’shilgan sana' },
         { id: 'admin', label: 'Moderator' }
     ]
+    const [open, setOpen]= useState(false)
     return (
+
         <Container>
-            <GenericTable headCells={headCells} rows={rows} />
+            <BreadCrumbs>
+            <GenericButton type='filter' onClick={()=>setOpen(!open)} >Filter</GenericButton>
+            <GenericButton type='import'>import</GenericButton>
+            {/* <GenericButton type='primary'>import</GenericButton>
+            <GenericButton type='save'>Saqlash</GenericButton>
+            <GenericButton type='delete'>O'chirish</GenericButton> */}
+            <GenericButton type='add'>Buyurtma Qo'shish</GenericButton>
+            </BreadCrumbs>
+            <GenericTable open={open}  headCells={headCells} rows={rows} />
         </Container>
     )
 }
