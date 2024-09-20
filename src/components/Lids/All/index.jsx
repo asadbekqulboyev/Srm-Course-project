@@ -1,4 +1,5 @@
 import BreadCrumbs from "../../Generics/BreadCrumbs";
+import GenericButton from "../../Generics/Button";
 import { GenericTable } from "../../Generics/Table"
 import { Container } from "./style"
 import {useState}from 'react'
@@ -24,10 +25,14 @@ export const Allids = () => {
 
         <Container>
             <BreadCrumbs>
-            <button>Filter</button>
-            <button>import</button>
+            <GenericButton type='filter' onClick={()=>setOpen(!open)} >Filter</GenericButton>
+            <GenericButton type='import'>import</GenericButton>
+            {/* <GenericButton type='primary'>import</GenericButton>
+            <GenericButton type='save'>Saqlash</GenericButton>
+            <GenericButton type='delete'>O'chirish</GenericButton> */}
+            <GenericButton type='add'>Buyurtma Qo'shish</GenericButton>
             </BreadCrumbs>
-            <GenericTable headCells={headCells} rows={rows} />
+            <GenericTable open={open}  headCells={headCells} rows={rows} />
         </Container>
     )
 }

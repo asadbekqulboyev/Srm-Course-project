@@ -40,7 +40,7 @@ function EnhancedTableHead(props) {
 
 export function GenericTable(props) {  
   const [selected, setSelected] = React.useState([]);
-  const {headCells,rows}=props
+  const {headCells,rows,open}=props
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
       const newSelected = rows.map((n) => n.id);
@@ -71,7 +71,7 @@ export function GenericTable(props) {
   
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ marginTop: '24px', border: 0 }}>
+      <Box sx={{ marginTop: '24px', border: 0 ,mb:0,height:open?'64px':0 , overflow:'hidden',transition:'all .3s linear'}}>
         <Table>
           <TableBody>
             <TableRow>
