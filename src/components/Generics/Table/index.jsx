@@ -19,6 +19,7 @@ function EnhancedTableHead(props) {
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
+            sx={{fontSize:'44px'}}
             color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
@@ -29,9 +30,7 @@ function EnhancedTableHead(props) {
           />
         </TableCell>
         {headCells.map((headCell) => (
-          <TableCell
-            sx={{color:'#929FAF'}}
-            key={headCell.id}>
+          <TableCell sx={{color:'#929FAF'}} key={headCell.id}>
               {headCell.label}
           </TableCell>
         ))}
@@ -69,22 +68,21 @@ export function GenericTable(props) {
     }
     setSelected(newSelected);
   };
-  const isSelected = (id)=>selected.indexOf(id)!==-1
+  // const isSelected = (id)=>selected.indexOf(id)!==-1
   const data1 = [
     {title:'Hello',value:'Hello'}
   ]
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ border: 0 ,mb:0,height:open?'64px':0 , overflow:'hidden',transition:'all .3s linear',pt:open?'10px':'0px'}}>
+      <Box sx={{ border: 0 ,mb:0,height:open?'64px':0 , overflow:'hidden',transition:'all .3s linear',p:`${open?'10px':'0px'} 24px`}}>
         <Table>
           <TableBody>
             <TableRow  sx={{display:'flex',justifyContent:'space-between'}}>
-              <GenericSelect value='Hammasi' label='Status' data={data1}/>
-              <GenericSelect value='Hammasi' label='Ranglar' data={data1}/>
-              <GenericSelect value='Hammasi' label='Guruh' data={data1}/>
-              <GenericSelect value='Hammasi' label='Kurslar' data={data1}/>
-              <GenericSelect value='Hammasi' label='Moderatorlar' data={data1}/>
-             
+              <GenericSelect data={data1}/>
+              <GenericSelect data={data1}/>
+              <GenericSelect data={data1}/>
+              <GenericSelect data={data1}/>
+              <GenericSelect data={data1}/>
             </TableRow>
           </TableBody>
         </Table>
@@ -127,7 +125,7 @@ export function GenericTable(props) {
                       />
                     </TableCell>
                     
-                    {headCells.map((val)=><TableCell key={val.id} >{row[val.id]}</TableCell>
+                    {headCells.map((val)=><TableCell key={val.id} >{val.render?val.render: row[val.id]}</TableCell>
                     )}
                   </TableRow>
                 );
