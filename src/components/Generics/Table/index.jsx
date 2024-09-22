@@ -68,7 +68,7 @@ export function GenericTable(props) {
     }
     setSelected(newSelected);
   };
-  const isSelected = (id)=>selected.indexOf(id)!==-1
+  // const isSelected = (id)=>selected.indexOf(id)!==-1
   const data1 = [
     {title:'Hello',value:'Hello'}
   ]
