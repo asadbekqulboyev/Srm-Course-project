@@ -18,13 +18,24 @@ body {
   color: var(--Color);
 }
 
-#demo-simple-select{
+ #demo-simple-select{
   padding:10px 16px 10px;
 }
 .MuiFormControl-root{
-  width: auto !important;
+  width: fit-content !important;
   
 }
 .MuiInputBase-input{
   padding: 10px !important;
 }
+/*.labels{
+  display: flex !important;
+  justify-content: center;
+  height: 100%;
+  top: -5px !important;
+} */
+/* .MuiInputBase-input.MuiOutlinedInput-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */

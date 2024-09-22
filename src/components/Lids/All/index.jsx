@@ -14,7 +14,7 @@ export const Allids = () => {
       ];
 
     const headCells = [
-        { id: 'name', label: 'O’quvchining ismi mknolkm; m' },
+        { id: 'name', label: 'O’quvchining ismi' },
         { id: 'group', label: 'Guruh / Fan' },
         { id: 'date', label: 'Dars kuni va vaqti' },
         { id: 'addedDate', label: 'Qo’shilgan sana' },
