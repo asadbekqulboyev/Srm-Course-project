@@ -1,10 +1,9 @@
-import BreadCrumbs from "../../Generics/BreadCrumbs";
-import GenericButton from "../../Generics/Button";
+import {useState}from 'react'
 import { GenericTable } from "../../Generics/Table"
 import { Action, Container } from "./style"
-import {useState}from 'react'
-import Modal from "../../Generics/Modal";
-
+import BreadCrumbs from "../../Generics/BreadCrumbs";
+import GenericButton from "../../Generics/Button";
+import AllLidsModal from "./modal";
 export const Allids = () => {
     const rows = [
         { id: 'name',name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin',  label: 'O’quvchining ismi' },
@@ -21,7 +20,6 @@ export const Allids = () => {
         console.log('jknknmknknkjnk',e);
         
     }
-    
     const headCells = [
         { id: 'name', label: 'O’quvchining ismi' },
         { id: 'group', label: 'Guruh / Fan' },
@@ -35,20 +33,22 @@ export const Allids = () => {
     ]
     const [open, setOpen]= useState(false)
     const [modalOpen, setModal]= useState(false)
+    const onToggleModal = ()=>{
+        setModal(!modalOpen)
+    }
+    const onSave = ()=>{
+    }
     return (
 
         <Container>
-            <Modal open={modalOpen}>
-            <GenericButton type='add'>Talaba Qo'shish</GenericButton>
-
-            </Modal>
+            <AllLidsModal open={modalOpen} onClose={onToggleModal} onSave={onSave}/>
             <BreadCrumbs>
             <GenericButton type='filter'  onClick={()=>setOpen(!open)} >Filter</GenericButton>
             <GenericButton type='import'>import</GenericButton>
             {/* <GenericButton type='primary'>import</GenericButton>
             <GenericButton type='save'>Saqlash</GenericButton>
             <GenericButton type='delete'>O'chirish</GenericButton> */}
-            <GenericButton type='add' onClick={()=>setModal(!modalOpen)} >Buyurtma Qo'shish</GenericButton>
+            <GenericButton type='add' onClick={onToggleModal} >Buyurtma Qo'shish</GenericButton>
             </BreadCrumbs>
             <GenericTable open={open}  headCells={headCells} rows={rows} />
         </Container>

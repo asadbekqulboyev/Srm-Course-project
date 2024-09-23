@@ -1,13 +1,13 @@
 import React from 'react'
-import { Container, Input } from '../../Navbar/style'
+import  {Input } from '../../Navbar/style'
 
 const GenriscInput = (props) => {
     const {iconLeft,iconRight}=props
   return (
-    <>  {iconLeft && iconLeft}
-        <Input {...props} />
+    <React.Fragment {...props}>  {iconLeft && iconLeft}
+        <Input {...props}  />
         {iconRight && iconRight}
-    </>
+    </React.Fragment>
         
   )
 }
