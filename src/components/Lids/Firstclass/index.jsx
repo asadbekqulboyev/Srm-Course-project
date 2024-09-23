@@ -48,13 +48,13 @@ export const FirstClass = () => {
         { id: 'group', label: 'Guruh / Fan' },
         { id: 'date', label: 'Dars kuni va vaqti' },
         { id: 'addedDate', label: 'Qo’shilgan sana' },
-        {
-            id: 'admin', label: 'Moderator', render: (res) => (
-                <Action>
-                    <Action.Edit onClick={(e) => onEdit(e, res)} />
-                </Action>
-            )
-        }
+        { id: 'admin', label: 'Moderator'},
+        { id: 'action', label:'',render:(res)=>( 
+        <Action>
+        <Action.Edit onClick={(e)=>onEdit(e,res)}/>
+        <Action.Move onClick={onMove}/>
+        </Action>
+        )}
     ]
     const onToggleModal = () => {
         setModal(!modalOpen)

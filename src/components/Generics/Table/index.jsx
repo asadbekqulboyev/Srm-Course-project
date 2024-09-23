@@ -9,8 +9,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
-import SubTitle from '../SubTitle';
-import GenericSelect from '../Select';
 function EnhancedTableHead(props) {
   const { onSelectAllClick,  numSelected, rowCount,headCells} =
     props;
@@ -30,7 +28,7 @@ function EnhancedTableHead(props) {
           />
         </TableCell>
         {headCells.map((headCell) => (
-          <TableCell sx={{color:'#929FAF'}} key={headCell.id}>
+          <TableCell sx={{color:'#929FAF',whiteSpace:'nowrap'}} key={headCell.id}>
               {headCell.label}
           </TableCell>
         ))}
@@ -39,9 +37,12 @@ function EnhancedTableHead(props) {
   );
 }
 
-export function GenericTable(props) {  
+export function GenericTable(props) { 
+   
   const [selected, setSelected] = React.useState([]);
   const {headCells,rows,open}=props
+  console.log(headCells);
+  
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
       const newSelected = rows.map((n) => n.id);
@@ -122,7 +123,7 @@ export function GenericTable(props) {
                       />
                     </TableCell>
                     
-                    {headCells.map((val)=><TableCell key={val.id} >{val.render?val.render(row): row[val.id]}</TableCell>
+                    {headCells.map((val)=> <TableCell key={val.id} >{val.render?val.render(row): row[val.id]}</TableCell>
                     )}
                   </TableRow>
                 );

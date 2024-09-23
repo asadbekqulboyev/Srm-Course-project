@@ -13,32 +13,32 @@ export const NewStudent = () => {
     const [modalProps, setModalProps] = useState({})
     const rows = [
         {
-            id: 'name', name: 'Webbrain', group: 'front-end', date: '21.21.2002', addedDate: '21.04.2404', admin: 'Admin', label: 'O’quvchining ismi',
+            id:1, name: 'Webbrain', group: 'front-end', date: '21.21.2002', addedDate: '21.04.2404', admin: 'Admin', label: 'O’quvchining ismi',
             days: 'Toq Kunlar', lavel: 'Beginner',
             phone:'+998 99 555-55-55'
         },
         {
-            id: 'phone', name: 'Webbrain', group: 'front-end', date: '21.21.2002', addedDate: '21.04.2404', admin: 'Admin', label: 'Telefon raqam',
+            id:2 , name: 'Webbrain', group: 'front-end', date: '21.21.2002', addedDate: '21.04.2404', admin: 'Admin', label: 'Telefon raqam',
             days: 'Toq Kunlar', lavel: 'Beginner',
             phone:'+998 99 555-55-55'
         },
         {
-            id: 'group', name: 'Webbrain', group: 'front-end', date: '21.21.2002', addedDate: '21.04.2404', admin: 'Admin', label: 'Guruh / Fan',
+            id:3 , name: 'Webbrain', group: 'front-end', date: '21.21.2002', addedDate: '21.04.2404', admin: 'Admin', label: 'Guruh / Fan',
             days: 'Toq Kunlar',
             phone:'+998 99 555-55-55'
         },
         {
-            id: 'date', name: 'Webbrain', group: 'front-end', date: '21.21.2002', addedDate: '21.04.2404', admin: 'Admin', label: 'Dars kuni va vaqti',
+            id:4 , name: 'Webbrain', group: 'front-end', date: '21.21.2002', addedDate: '21.04.2404', admin: 'Admin', label: 'Dars kuni va vaqti',
             days: 'Juft Kunlar', lavel: 'Junior',
             phone:'+998 99 555-55-55'
         },
         {
-            id: 'addedDate', name: 'Webbrain', group: 'front-end', date: '21.21.2002', addedDate: '21.04.2404', admin: 'Admin', label: 'Qo’shilgan sana',
+            id: 5, name: 'Webbrain', group: 'front-end', date: '21.21.2002', addedDate: '21.04.2404', admin: 'Admin', label: 'Qo’shilgan sana',
             days: 'Juft Kunlar', lavel: 'Beginner',
             phone:'+998 99 555-55-55'
         },
         {
-            id: 'admin', name: 'Webbrain', group: 'front-end', date: '21.21.2002', addedDate: '21.04.2404', admin: 'Admin', label: 'Moderator',
+            id:6 , name: 'Webbrain', group: 'front-end', date: '21.21.2002', addedDate: '21.04.2404', admin: 'Admin', label: 'Moderator',
             days: 'Toq Kunlar', lavel: 'Advanced',
             phone:'+998 99 555-55-55'
         }
@@ -58,13 +58,13 @@ export const NewStudent = () => {
         { id: 'group', label: 'Guruh / Fan' },
         { id: 'date', label: 'Dars kuni va vaqti' },
         { id: 'addedDate', label: 'Qo’shilgan sana' },
-        { id: 'phone', label: 'Telefon raqam' },
-        { id: 'admin', label: 'Moderator', render: (res) => (
-                <Action>
-                    <Action.Edit onClick={(e) => onEdit(e, res)} />
-                </Action>
-            )
-        }
+        { id: 'admin', label: 'Moderator'},
+        { id: 'action', label:'',render:(res)=>( 
+        <Action>
+        <Action.Edit onClick={(e)=>onEdit(e,res)}/>
+        <Action.Move onClick={onMove}/>
+        </Action>
+        )}
     ]
     const onToggleModal = () => {
         setModal(!modalOpen)
