@@ -11,6 +11,8 @@ import Settings from "../assets/icons/setting.svg?react";
 import { Generics } from "../view/Generics";
 import { AnalitikaView } from "../view/AnalitikaView";
 import AllidsView from "../view/Lids/All";
+import FirstClassView from "../view/Lids/First";
+import NewStudent from "../components/Lids/NewStudent";
 // import { AnalitikaView } from "../view/AnalitikaView";
 // import FirstClassView from "../view/Lids/First";
 // import AllLidsView from "../view/Lids/All";
@@ -61,7 +63,7 @@ const sidebar = [
         title: "Birinchi Dars",
         path: "/lidlar/first-class",
         isPrivate: true,
-        element: Generics,
+        element: FirstClassView,
         role: ["admin", "manager"],
       },
       {
@@ -70,7 +72,7 @@ const sidebar = [
         path: "/lidlar/new-students",
         parentID: 2,
         isPrivate: true,
-        element: Generics,
+        element: NewStudent,
         role: ["admin", "manager"],
       },
     ],

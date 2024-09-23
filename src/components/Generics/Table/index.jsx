@@ -70,19 +70,16 @@ export function GenericTable(props) {
   };
   // const isSelected = (id)=>selected.indexOf(id)!==-1
   const data1 = [
-    {title:'Hello',value:'Hello'}
+    {title:'Hello',value:'Hello'},
+    {title:'Hegu6tllo',value:'Hello'},
   ]
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ border: 0 ,mb:0,height:open?'64px':0 , overflow:'hidden',transition:'all .3s linear',p:`${open?'10px':'0px'} 24px`}}>
         <Table>
           <TableBody>
-            <TableRow  sx={{display:'flex',justifyContent:'space-between'}}>
-              <GenericSelect data={data1}/>
-              <GenericSelect data={data1}/>
-              <GenericSelect data={data1}/>
-              <GenericSelect data={data1}/>
-              <GenericSelect data={data1}/>
+            <TableRow  sx={{display:'flex',gap:'0 20px'}}>
+              {props?.children}
             </TableRow>
           </TableBody>
         </Table>
