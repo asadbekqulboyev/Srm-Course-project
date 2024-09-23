@@ -125,7 +125,7 @@ export function GenericTable(props) {
                       />
                     </TableCell>
                     
-                    {headCells.map((val)=><TableCell key={val.id} >{val.render?val.render: row[val.id]}</TableCell>
+                    {headCells.map((val)=><TableCell key={val.id} >{val.render?val.render(row): row[val.id]}</TableCell>
                     )}
                   </TableRow>
                 );
