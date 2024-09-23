@@ -5,16 +5,31 @@ import BreadCrumbs from "../../Generics/BreadCrumbs";
 import GenericButton from "../../Generics/Button";
 import AllLidsModal from "./modal";
 export const Allids = () => {
+    const [open, setOpen]= useState(false)
+    const [modalOpen, setModal]= useState(false)
+    const [modalProps,setModalProps]=useState({})
     const rows = [
-        { id: 'name',name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin',  label: 'O’quvchining ismi' },
-        { id: 'group',name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin',  label: 'Guruh / Fan' },
-        { id: 'date',name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404', admin:'Admin', label: 'Dars kuni va vaqti' },
-        { id: 'addedDate', name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin', label: 'Qo’shilgan sana' },
-        { id: 'admin', name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin', label: 'Moderator' }
+        { id: 'name',name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin',  label: 'O’quvchining ismi',
+        days:'Toq Kunlar',lavel:'Beginner'
+         },
+        { id: 'group',name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin',  label: 'Guruh / Fan',
+        days:'Toq Kunlar'
+         },
+        { id: 'date',name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404', admin:'Admin', label: 'Dars kuni va vaqti',
+        days:'Juft Kunlar',lavel:'Junior'
+         },
+        { id: 'addedDate', name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin', label: 'Qo’shilgan sana',
+        days:'Juft Kunlar',lavel:'Beginner'
+         },
+        { id: 'admin', name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin', label: 'Moderator',
+        days:'Toq Kunlar',lavel:'Advanced'
+         }
       ];
-    const onEdit = (e)=>{
+    const onEdit = (e,res)=>{
         e.stopPropagation()
-        console.log('Edit',e);
+        setModal(!modalOpen)
+        setModalProps(res)
+        
     }
     const onMove = (e)=>{
         console.log('jknknmknknkjnk',e);
@@ -25,23 +40,24 @@ export const Allids = () => {
         { id: 'group', label: 'Guruh / Fan' },
         { id: 'date', label: 'Dars kuni va vaqti' },
         { id: 'addedDate', label: 'Qo’shilgan sana' },
-        { id: 'admin', label: 'Moderator',render:( <Action>
-                <Action.Edit onClick={onEdit}/>
-                <Action.Move onClick={onMove}/>
-            </Action>
+        { id: 'admin', label: 'Moderator',render:(res)=>( 
+        <Action>
+        <Action.Edit onClick={(e)=>onEdit(e,res)}/>
+        <Action.Move onClick={onMove}/>
+        </Action>
         )}
     ]
-    const [open, setOpen]= useState(false)
-    const [modalOpen, setModal]= useState(false)
+   
     const onToggleModal = ()=>{
         setModal(!modalOpen)
+        setModalProps(null)
     }
     const onSave = ()=>{
     }
     return (
 
         <Container>
-            <AllLidsModal open={modalOpen} onClose={onToggleModal} onSave={onSave}/>
+            <AllLidsModal open={modalOpen} data={modalProps} onClose={onToggleModal} onSave={onSave}/>
             <BreadCrumbs>
             <GenericButton type='filter'  onClick={()=>setOpen(!open)} >Filter</GenericButton>
             <GenericButton type='import'>import</GenericButton>
