@@ -4,6 +4,7 @@ import { Action, Container } from "./style"
 import BreadCrumbs from "../../Generics/BreadCrumbs";
 import GenericButton from "../../Generics/Button";
 import AllLidsModal from "./modal";
+import GenericSelect from '../../Generics/Select';
 export const Allids = () => {
     const [open, setOpen]= useState(false)
     const [modalOpen, setModal]= useState(false)
@@ -54,6 +55,9 @@ export const Allids = () => {
     }
     const onSave = ()=>{
     }
+    const data1=[
+        
+    ]
     return (
 
         <Container>
@@ -66,7 +70,9 @@ export const Allids = () => {
             <GenericButton type='delete'>O'chirish</GenericButton> */}
             <GenericButton type='add' onClick={onToggleModal} >Buyurtma Qo'shish</GenericButton>
             </BreadCrumbs>
-            <GenericTable open={open}  headCells={headCells} rows={rows} />
+            <GenericTable open={open}  headCells={headCells} rows={rows}>
+            <GenericSelect data={data1}/>
+            </GenericTable>
         </Container>
     )
 }
