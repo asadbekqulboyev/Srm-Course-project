@@ -45,6 +45,8 @@ function Sidebar() {
         <Profile />
         <Menu>
           {sidebar.map((parent) => {
+            console.log(parent.path);
+            
               const { icon: Icon } = parent
               const active =open?.includes(parent.id)
               const activePath= location.pathname?.includes(parent?.path)
@@ -60,7 +62,10 @@ function Sidebar() {
                   <ChildWrapper active={active.toString()}>
                     {parent?.children?.map((child) => {
                       return (
-                        <MenuItem key={child.id} to={child?.path} active={(location.pathname==child.path).toString()}
+                        <MenuItem 
+                        key={child.id} 
+                        to={child?.path} 
+                        active={location.pathname?.includes(child.path).toString()}
                         onClick={(e)=>onClickChild(parent.title, child.title,child.path,e)}
                         >
                           <MenuItem.Title> {child?.title}</MenuItem.Title>

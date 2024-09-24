@@ -97,7 +97,7 @@ export const Guruhlar = () => {
             <BreadCrumbs>
                 <GenericButton type='add' onClick={()=> onToggleModal()}>Gururh Qo'shish</GenericButton>
             </BreadCrumbs>
-            <GenericTable headCells={headCells} rows={rows} checkbox={false}>
+            <GenericTable headCells={headCells} rows={rows} checkbox={false} url='/guruhlar/guruhlar/checking'>
             </GenericTable>
         </Container>
     )
