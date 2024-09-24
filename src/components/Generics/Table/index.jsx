@@ -10,13 +10,13 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 function EnhancedTableHead(props) {
-  const { onSelectAllClick,  numSelected, rowCount,headCells} =
+  const { onSelectAllClick,  numSelected, rowCount,headCells,checkbox} =
     props;
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
-          <Checkbox
+        
+          {checkbox&&<TableCell padding="checkbox"> <Checkbox
             sx={{fontSize:'44px'}}
             color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
@@ -25,8 +25,8 @@ function EnhancedTableHead(props) {
             inputProps={{
               'aria-label': 'select all desserts',
             }}
-          />
-        </TableCell>
+          />  </TableCell>}
+       
         {headCells.map((headCell) => (
           <TableCell sx={{color:'#929FAF',whiteSpace:'nowrap'}} key={headCell.id}>
               {headCell.label}
@@ -40,9 +40,7 @@ function EnhancedTableHead(props) {
 export function GenericTable(props) { 
    
   const [selected, setSelected] = React.useState([]);
-  const {headCells,rows,open}=props
-  console.log(headCells);
-  
+  const {headCells,rows,open,checkbox=true}=props
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
       const newSelected = rows.map((n) => n.id);
@@ -67,7 +65,7 @@ export function GenericTable(props) {
         selected.slice(selectedIndex + 1),
       );
     }
-    setSelected(newSelected);
+  checkbox&&  setSelected(newSelected);
   };
   // const isSelected = (id)=>selected.indexOf(id)!==-1
   const data1 = [
@@ -96,6 +94,7 @@ export function GenericTable(props) {
               onSelectAllClick={handleSelectAllClick}
               headCells={headCells}
               rowCount={rows.length}
+              checkbox={checkbox}
             />
             <TableBody>
               {rows.map((row, index) => {
@@ -113,7 +112,7 @@ export function GenericTable(props) {
                     selected={isItemSelected}
                     sx={{ cursor: 'pointer' }}
                   >
-                    <TableCell padding="checkbox">
+                    {checkbox&& <TableCell padding="checkbox">
                       <Checkbox
                         color="primary"
                         checked={isItemSelected}
@@ -122,7 +121,7 @@ export function GenericTable(props) {
                         }}
                       />
                     </TableCell>
-                    
+                     }
                     {headCells.map((val)=> <TableCell key={val.id} >{val.render?val.render(row): row[val.id]}</TableCell>
                     )}
                   </TableRow>
