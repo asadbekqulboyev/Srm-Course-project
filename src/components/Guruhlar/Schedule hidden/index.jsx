@@ -107,7 +107,6 @@ export const Schedule = () => {
         
     }
     const onMove = (e)=>{
-        console.log('jknknmknknkjnk',e);
         
     }
     const headCells = [

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import edit from '../../../assets/icons/edit.svg?react'
-import deletes from '../../../assets/icons/delete.svg?react'
+import delet from '../../../assets/icons/delete.svg?react'
 export const Container = styled.div`
 
 `
@@ -17,7 +17,7 @@ width: 34px;
 height: 34px;
 cursor: pointer;
 `;
-Action.Delete = styled(deletes)`
+Action.Delete = styled(delet)`
 padding: 5px;
 width: 34px;
 height: 34px;

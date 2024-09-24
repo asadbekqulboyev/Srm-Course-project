@@ -3,16 +3,17 @@ import { Container } from './style';
 import sidebar from '../utils/sidebar';
 import { Navigate, Route,Routes } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
+import Checking from '../components/Guruhlar/Guruhlar/Checking';
 
 function Root() {
     return (
         <Container>
             <Routes>
                 <Route element={<Sidebar/>}>
+                <Route path={'/guruhlar/guruhlar/checking'} element={<Checking/>}/>
                 {sidebar.map((parent) => {
                     const ElementParent = parent.element
                     if (parent?.children?.length) {
-
                       return  parent.children.map((child)=>{
                          const ElementChild = child.element
                             return(

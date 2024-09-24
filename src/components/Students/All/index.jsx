@@ -107,8 +107,6 @@ export const AllStudents = () => {
         
     }
     const onMove = (e)=>{
-        console.log('jknknmknknkjnk',e);
-        
     }
     const headCells = [
         { id: 'name', label: 'O’quvchining ismi' },
