@@ -1,14 +1,10 @@
 import { useState } from 'react'
-import { GenericTable } from "../../Generics/Table"
+import GenericTable from '../../Generics/Table';
 import { Action, Container } from "./style"
 import BreadCrumbs from "../../Generics/BreadCrumbs";
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import GenericButton from "../../Generics/Button";
 import AllLidsModal from "./modal";
-import GenericSelect from '../../Generics/Select';
-import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 export const Guruhlar = () => {
-    const [open, setOpen] = useState(false)
     const [modalOpen, setModal] = useState(false)
     const [modalProps, setModalProps] = useState({})
     const onEdit = (e, res) => {
@@ -99,11 +95,10 @@ export const Guruhlar = () => {
         <Container>
             <AllLidsModal open={modalOpen} data={modalProps} onClose={onToggleModal} onSave={onSave} />
             <BreadCrumbs>
-                <GenericButton type='import'>import</GenericButton>
+                <GenericButton type='add' onClick={()=> onToggleModal()}>Gururh Qo'shish</GenericButton>
             </BreadCrumbs>
-            <GenericTable open={open} headCells={headCells} rows={rows} checkbox={false}>
+            <GenericTable headCells={headCells} rows={rows} checkbox={false}>
             </GenericTable>
         </Container>
     )
 }
-export default Guruhlar

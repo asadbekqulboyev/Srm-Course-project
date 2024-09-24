@@ -50,7 +50,6 @@ export const NewStudent = () => {
 
     }
     const onMove = (e) => {
-        console.log('jknknmknknkjnk', e);
 
     }
     const headCells = [

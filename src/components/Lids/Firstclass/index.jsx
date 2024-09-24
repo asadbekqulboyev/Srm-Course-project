@@ -40,7 +40,6 @@ export const FirstClass = () => {
 
     }
     const onMove = (e) => {
-        console.log('jknknmknknkjnk', e);
 
     }
     const headCells = [

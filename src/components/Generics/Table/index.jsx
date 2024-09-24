@@ -37,7 +37,7 @@ function EnhancedTableHead(props) {
   );
 }
 
-export function GenericTable(props) { 
+export const GenericTable=(props)=> { 
    
   const [selected, setSelected] = React.useState([]);
   const {headCells,rows,open,checkbox=true}=props
@@ -140,3 +140,4 @@ export function GenericTable(props) {
     </Box>
   );
 }
+export default GenericTable;

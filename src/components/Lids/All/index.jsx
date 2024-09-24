@@ -33,7 +33,6 @@ export const Allids = () => {
         
     }
     const onMove = (e)=>{
-        console.log('jknknmknknkjnk',e);
         
     }
     const headCells = [

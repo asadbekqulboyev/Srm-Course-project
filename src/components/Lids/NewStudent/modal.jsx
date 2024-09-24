@@ -5,8 +5,6 @@ import GenericSelect from '../../Generics/Select'
 import Title from '../../Generics/Title'
 const AllLidsModal = (props) => {
   const {data} =props
-  console.log(data);
-  
   const date1= [
     {
       title:'Front End',name:''

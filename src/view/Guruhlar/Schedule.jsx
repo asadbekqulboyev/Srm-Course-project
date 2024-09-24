@@ -1,4 +1,4 @@
-import { Schedule } from "../../components/Guruhlar/Schedule"
+import { Schedule } from "../../components/Guruhlar/Schedule hidden"
 
 export const ScheduleView = () => <Schedule/>
 
