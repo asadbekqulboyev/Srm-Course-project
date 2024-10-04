@@ -29,7 +29,7 @@ function EnhancedTableHead(props) {
           />  </TableCell>}
        
         {headCells.map((headCell) => (
-          <TableCell sx={{color:'#929FAF',whiteSpace:'nowrap'}} key={headCell.id}>
+          <TableCell sx={{color:'#929FAF',whiteSpace:'nowrap' }} align={headCell?.align || 'left'} key={headCell.id}>
               {headCell.label}
           </TableCell>
         ))}
@@ -126,7 +126,7 @@ if(checkbox){
                       />
                     </TableCell>
                      }
-                    {headCells.map((val)=> <TableCell key={val.id} >{val.render?val.render(row): row[val.id]}</TableCell>
+                    {headCells.map((val)=> <TableCell align={val?.align || 'left'} key={val.id} >{val.render?val.render(row): row[val.id]}</TableCell>
                     )}
                   </TableRow>
                 );
