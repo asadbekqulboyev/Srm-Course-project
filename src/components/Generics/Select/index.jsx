@@ -9,7 +9,7 @@ const {data,width}=props
   setDefaultValue(event.target.value)
  }
       return (
-      <FormControl fullWidth sx={{width:width||'fit-content'}}>
+      <FormControl fullWidth sx={{width:width||'fit-content',marginTop:props?.mt+'px'||0}}>
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
