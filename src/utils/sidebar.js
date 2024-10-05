@@ -19,6 +19,8 @@ import ArchiveStudentsView from "../view/Students/Archive";
 import GururhlarView from "../view/Guruhlar/Guruhlar";
 import ScheduleView from "../view/Guruhlar/Schedule";
 import RoomsView from "../view/Guruhlar/Rooms";
+import HodimlarView from "../view/HR/Hodimlar";
+import RolesView from "../view/HR/Roles";
 // import { AnalitikaView } from "../view/AnalitikaView";
 // import FirstClassView from "../view/Lids/First";
 // import AllLidsView from "../view/Lids/All";
@@ -231,7 +233,7 @@ const sidebar = [
         title: "Ro'llar",
         path: "/hr/role",
         isPrivate: true,
-        element: Generics,
+        element: RolesView,
         role: ["admin", "manager"],
       },
       {
@@ -240,7 +242,7 @@ const sidebar = [
         title: "Hodimlar",
         path: "/hr/hodimlar",
         isPrivate: true,
-        element: Generics,
+        element: HodimlarView,
         role: ["admin", "manager"],
       },
     ],
