@@ -4,6 +4,7 @@ import SubTitle from '../../Generics/SubTitle'
 import GenericSelect from '../../Generics/Select'
 import Title from '../../Generics/Title'
 import { Devider } from './style'
+import { Checkbox } from '@mui/material'
 const AllLidsModal = (props) => {
   const {data} =props
   
@@ -42,17 +43,13 @@ const AllLidsModal = (props) => {
       <Devider>
         <Devider.Filial>
         <SubTitle color='#929FAF'>Filiallar</SubTitle>
-        <Devider>
-         <input type="checkbox" /> Chilonzor
+        <Devider><Checkbox defaultChecked={true} />  Chilonzor
         </Devider>
-        <Devider>
-        <input type="checkbox" />  Namangan 
+        <Devider><Checkbox defaultChecked={false} /> Namangan 
         </Devider>
-        <Devider>
-        <input type="checkbox" />  Ganga
+        <Devider><Checkbox defaultChecked={true} />  Ganga
         </Devider>
-        <Devider>
-        <input type="checkbox" />  Beruniy
+        <Devider><Checkbox defaultChecked={true} />  Beruniy
         </Devider>
         </Devider.Filial>
         <Devider.Role>

@@ -17,3 +17,22 @@ height: 42px;
 cursor: pointer;
 `;
 Action.Move = styled(edit)``;
+
+export const Wrapper= styled.div`
+display:flex;
+margin-top: 15px;
+justify-content: space-between;
+flex-wrap: wrap;
+`;
+
+
+Wrapper.Left =styled.div`
+display: flex;
+flex-direction: column;
+width: calc(50% - 70px);
+
+`;
+// Wrapper.Right =styled.div`
+// display: flex;
+// flex-direction: column;
+// `;
