@@ -79,7 +79,7 @@ export const Hodimlar = () => {
             <BreadCrumbs>
                 {/* <GenericButton type='filter' onClick={() => setOpen(!open)} >Filter</GenericButton> */}
                 {/* <GenericButton type='import'>import</GenericButton> */}
-                <GenericButton type='add' onClick={onToggleModal} >Hodim Qo'shish</GenericButton>
+                <GenericButton type='add' onClick={onToggleModal} >Ro'l Qo'shish</GenericButton>
             </BreadCrumbs>
             <GenericTable open={open} headCells={headCells} rows={rows} checkbox={false}>
                

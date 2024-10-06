@@ -15,6 +15,9 @@ width: 100%;
 margin:78px auto auto;
 max-width: 600px;
 padding: 32px 48px;
+max-height:calc(100% - 88px);
+overflow-y:auto;
+&::-webkit-scrollbar{display:none;}
 `
 export const Footer = styled.div`
 display: flex;
