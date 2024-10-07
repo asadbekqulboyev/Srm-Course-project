@@ -17,15 +17,3 @@ height: 42px;
 cursor: pointer;
 `;
 Action.Move = styled(edit)``;
-
-export const Devider = styled.div`
-display:flex;
-margin-top: 16px;
-align-items: center;
-`
-
-Devider.Role = styled.div`
-flex:1;`
-
-Devider.Filial = styled.div`
-flex:1;`
