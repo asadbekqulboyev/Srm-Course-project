@@ -9,10 +9,10 @@ export const rows = [
                 id: 1, title: 'Front End',
                 location: 'Chilonzor, Toshkent, Uzbekistan',
                 filial: 'Chilonzor', students: groupStudent,
-                timeline: 'Dush Chor Jum',
+                timeline: 'Dushanba - Seshanba - Juma',
                 time: '17:00 - 19:00',
                 level: 'Beginner',
-                started: false
+                started: true
             },
             {
                 id: 2,
@@ -20,7 +20,7 @@ export const rows = [
                 location: 'Chilonzor, Toshkent, Uzbekistan',
                 filial: 'Chilonzor',
                 students: groupStudent,
-                timeline: 'Dush Chor Jum',
+                timeline: 'Dushanba - Seshanba - Juma',
                 time: '17:00 - 19:00',
                 level: 'Beginner',
                 started: false
@@ -31,7 +31,7 @@ export const rows = [
                 location: 'Chilonzor, Toshkent, Uzbekistan',
                 filial: 'Chilonzor',
                 students: groupStudent,
-                timeline: 'Dush Chor Jum',
+                timeline: 'Dushanba - Seshanba - Juma',
                 time: '17:00 - 19:00',
                 level: 'Beginner',
                 started: false
@@ -47,7 +47,7 @@ export const rows = [
                 id: 1, title: 'FCP',
                 location: 'Chilonzor, Toshkent, Uzbekistan',
                 filial: 'Chilonzor', students: groupStudent,
-                timeline: 'Dush Chor Jum',
+                timeline: 'Dushanba - Seshanba - Juma',
                 time: '17:00 - 19:00',
                 level: 'Beginner',
                 started: false
@@ -58,7 +58,7 @@ export const rows = [
                 location: 'Chilonzor, Toshkent, Uzbekistan',
                 filial: 'Chilonzor',
                 students: groupStudent,
-                timeline: 'Dush Chor Jum',
+                timeline: 'Dushanba - Seshanba - Juma',
                 time: '17:00 - 19:00',
                 level: 'Beginner',
                 started: false
@@ -69,7 +69,7 @@ export const rows = [
                 location: 'Chilonzor, Toshkent, Uzbekistan',
                 filial: 'Chilonzor',
                 students: groupStudent,
-                timeline: 'Dush Chor Jum',
+                timeline: 'Dushanba - Seshanba - Juma',
                 time: '17:00 - 19:00',
                 level: 'Beginner',
                 started: false
@@ -97,7 +97,7 @@ export const rows = [
                 location: 'Chilonzor, Toshkent, Uzbekistan',
                 filial: 'Chilonzor',
                 students: groupStudent,
-                timeline: 'Dush Chor Jum',
+                timeline: 'Dushanba - Seshanba - Juma',
                 time: '17:00 - 19:00',
                 level: 'Beginner',
                 started: false
@@ -108,7 +108,7 @@ export const rows = [
                 location: 'Chilonzor, Toshkent, Uzbekistan',
                 filial: 'Chilonzor',
                 students: groupStudent,
-                timeline: 'Dush Chor Jum',
+                timeline: 'Dushanba - Seshanba - Juma',
                 time: '17:00 - 19:00',
                 level: 'Beginner',
                 started: false

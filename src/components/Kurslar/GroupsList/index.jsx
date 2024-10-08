@@ -42,8 +42,6 @@ export const GroupsList = () => {
             <BreadCrumbs>
                 <GenericButton type='add' onClick={()=> onToggleModal()}>Gururh Qo'shish</GenericButton>
             </BreadCrumbs>
-            {/* <GenericTable headCells={headCells} rows={rows} checkbox={false} url='/guruhlar/guruhlar/checking'>
-            </GenericTable> */}
             <CollapsibleTable row={rows} cells={headCells}/>
         </Container>
     )

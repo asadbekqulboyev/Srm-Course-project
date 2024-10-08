@@ -8,6 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Delete, Edit, Status, TimelineWrapper, Title } from './tableStyle';
 
 function createData(name, calories, fat, carbs, protein, price) {
     return {
@@ -42,33 +43,56 @@ function Row(props) {
                 <TableCell component="th" scope="row">
                     {row.title}
                 </TableCell>
+                <TableCell align='right'>
+                    <Edit />
+                    <Delete />
+                </TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
                             <Table size="small" aria-label="purchases">
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell>Location</TableCell>
-                                        <TableCell>Status</TableCell>
-                                        <TableCell >Schedule</TableCell>
-                                        <TableCell >Action</TableCell>
-                                    </TableRow>
-                                </TableHead>
                                 <TableBody>
-                                    {row.list?.map((historyRow) => (
-                                        <TableRow key={historyRow.date}>
-                                            <TableCell component="th" scope="row">
-                                                {historyRow.date}
+                                    {row.groups?.map((rw) =>{ 
+                                        
+                                        return(
+                                        <TableRow sx={{
+                                            display:'flex',
+                                            border:'1px solid red',background: '#FFFFFF',
+                                            border: '1px solid #e5f2ff',
+                                            padding:'10px 24px',
+                                            width:'100%',
+                                            margin:'5px',
+                                        }} key={rw.date}>
+                                            <TableCell  sx={{borderBottom:'0',flex:'1',display:'flex',flexDirection:"column",gap:'5px'}}>
+                                            <Title>{rw.level}</Title>
+                                            <Status active={rw.started}>{rw.started ? 'Active':'Soon'}</Status>
                                             </TableCell>
-                                            <TableCell>{historyRow.customerId}</TableCell>
-                                            <TableCell align="right">{historyRow.amount}</TableCell>
-                                            <TableCell align="right">
-                                                {Math.round(historyRow.amount * row.price * 100) / 100}
+                                            <TableCell sx={{borderBottom:'0',flex:'1',display:'flex',flexDirection:"column",gap:'5px'}}>
+                                            <Title>{rw?.filial}</Title>
+                                            <Title color='#1890FF'>{rw?.location}</Title>
+                                            </TableCell>
+                                            <TableCell sx={{borderBottom:'0',flex:'1',display:'flex',flexDirection:"column",gap:'5px'}}>
+                                            <TimelineWrapper time>
+                                               {rw.timeline}</TimelineWrapper>
+                                                
+                                                <TimelineWrapper >{rw.time}</TimelineWrapper>
+                                                {rw.amount}</TableCell>
+                                            <TableCell sx={{borderBottom:'0',flex:'1',display:'flex',flexDirection:"column",gap:'5px'}}>
+                                                <Title color='#BBC3CD' font='12'>O'qituvchilar</Title>
+                                                <Title color='#929FAF' >{rw.students.length}</Title>
+                                            </TableCell>
+                                            <TableCell sx={{borderBottom:'0',display:'flex',
+                                            gap:'20px',
+                                            alignItems:'center',
+                                            justifyContent:'center'
+                                            }}>
+                                                <Edit/>
+                                                <Delete/>
                                             </TableCell>
                                         </TableRow>
-                                    ))}
+                                    )})}
                                 </TableBody>
                             </Table>
                         </Box>
@@ -86,8 +110,7 @@ export default function CollapsibleTable(props) {
             <Table aria-label="collapsible table">
                 <TableHead>
                     <TableRow sx={{ '& > *': { borderBottom: 'unset' },width:'100%' }}>
-                        <TableCell />
-                        <TableCell>Kurslar turi</TableCell>
+                        <TableCell colSpan={2} width={{width:'100%'} }>Kurslar turi</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
