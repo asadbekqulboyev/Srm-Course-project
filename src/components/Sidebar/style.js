@@ -10,8 +10,6 @@ transform:${({active})=>active=='true'?'rotate(90deg)':'rotate(0deg)'};
 `
 const Container  = styled.div`
 display:flex;
-position: sticky;
-top: 0;
 ` 
 const Side = styled.div`
 width:280px ;
@@ -36,6 +34,9 @@ const Wrapper = styled.div`
 margin: 16px;
 background-color: #FFFFFF;
 border-radius:8px;
+height: calc(100vh - 95px);
+overflow-y: auto;
+&::-webkit-scrollbar{display:none}
 `
 const Logo=styled.div`
 font-size: 20px;

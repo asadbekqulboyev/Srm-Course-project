@@ -44,9 +44,7 @@ function Sidebar() {
         <Logo onClick={logoClick}>Crm webbrain</Logo>
         <Profile />
         <Menu>
-          {sidebar.map((parent) => {
-            console.log(parent.path);
-            
+          {sidebar.map((parent) => {            
               const { icon: Icon } = parent
               const active =open?.includes(parent.id)
               const activePath= location.pathname?.includes(parent?.path)
