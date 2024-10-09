@@ -7,6 +7,9 @@ cursor: pointer;
 export const Delete = styled(del)`
 cursor: pointer;
 `;
+export const Input = styled.input`
+
+`
 export const Title = styled.div`
 font-size:${({font})=>font?font+'px':'16px'} ;
 font-weight: 500;

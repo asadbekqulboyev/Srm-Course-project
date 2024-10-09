@@ -73,3 +73,28 @@ background-color: #F8FAFC;
 
 }
 `
+export const Section = styled.label`
+background-color: #E6F7FF;
+padding: 8px 16px;
+width: 100%;
+border-radius: 8px 0 0 8px;
+border:1px solid #91D5FF;
+border-right:0;
+`
+export const Flex = styled.div`
+display: flex;
+flex:1;
+width: 100%;
+margin-top: ${({g})=>g?g:0};
+flex-direction: ${({g})=>g?'column':'row' };
+gap: ${({g})=>g?g:0};
+`
+export const Input = styled.input`
+background-color: #fff;
+border:1px solid #91D5FF;
+border-radius: 0 8px 8px 0;
+outline: none;
+width: 100%;
+height: 100%;
+padding-left:16px;
+`

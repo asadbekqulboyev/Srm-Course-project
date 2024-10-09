@@ -8,42 +8,23 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Delete, Edit, Status, TimelineWrapper, Title } from './tableStyle';
-
-function createData(name, calories, fat, carbs, protein, price) {
-    return {
-        name,
-        calories,
-        fat,
-        carbs,
-        protein,
-        price,
-        history: [
-            {
-                date: '2020-01-05',
-                customerId: '11091700',
-                amount: 3,
-            },
-            {
-                date: '2020-01-02',
-                customerId: 'Anonymous',
-                amount: 1,
-            },
-        ],
-    };
-}
+import {Delete, Edit, Status, TimelineWrapper, Title } from './tableStyle';
+import Button from '../../Generics/Button'
 
 function Row(props) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
-
+    const onAddKurs = (e)=>{
+        e.stopPropagation();
+    }
     return (
         <React.Fragment>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }} onClick={()=>setOpen(!open)}>
                 <TableCell component="th" scope="row">
                     {row.title}
                 </TableCell>
-                <TableCell align='right'>
+                <TableCell align='right'sx={{display:'flex',alignItems:'center',gap:'18px'}} >
+                   <Button type='add' onClick={onAddKurs} ></Button>
                     <Edit />
                     <Delete />
                 </TableCell>
@@ -55,7 +36,6 @@ function Row(props) {
                             <Table size="small" aria-label="purchases">
                                 <TableBody>
                                     {row.groups?.map((rw) =>{ 
-                                        
                                         return(
                                         <TableRow sx={{
                                             display:'flex',
@@ -73,10 +53,8 @@ function Row(props) {
                                             <Title>{rw?.filial}</Title>
                                             <Title color='#1890FF'>{rw?.location}</Title>
                                             </TableCell>
-                                            <TableCell sx={{borderBottom:'0',flex:'1',display:'flex',flexDirection:"column",gap:'5px'}}>
-                                            <TimelineWrapper time>
-                                               {rw.timeline}</TimelineWrapper>
-                                                
+                                            <TableCell sx={{borderBottom:'0',flex:'2',display:'flex',flexDirection:"column",gap:'5px'}}>
+                                            <TimelineWrapper time>{rw.timeline}</TimelineWrapper>
                                                 <TimelineWrapper >{rw.time}</TimelineWrapper>
                                                 {rw.amount}</TableCell>
                                             <TableCell sx={{borderBottom:'0',flex:'1',display:'flex',flexDirection:"column",gap:'5px'}}>
