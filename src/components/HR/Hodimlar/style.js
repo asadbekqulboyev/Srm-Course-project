@@ -28,4 +28,7 @@ Devider.Role = styled.div`
 flex:1;`
 
 Devider.Filial = styled.div`
-flex:1;`
+flex:1;
+gap: 20px;
+gap:${({g})=>g?g+'px':0};
+`
