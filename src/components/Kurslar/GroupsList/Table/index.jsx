@@ -9,22 +9,30 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {Delete, Edit, Status, TimelineWrapper, Title } from './tableStyle';
-import Button from '../../Generics/Button'
-
+import Button from '../../../Generics/Button'
+import CourseModal from '../courseModal';
 function Row(props) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
+    const [openAdd, setOpenAdd] = React.useState(false);
     const onAddKurs = (e)=>{
         e.stopPropagation();
+        setOpenAdd(!openAdd)
+    }
+    const onSave = (e)=>{
+        e.stopPropagation();
+        setOpenAdd(!openAdd)
     }
     return (
         <React.Fragment>
+
+<CourseModal open={openAdd} onClose={onAddKurs}  onSave={onSave}/>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }} onClick={()=>setOpen(!open)}>
                 <TableCell component="th" scope="row">
                     {row.title}
                 </TableCell>
                 <TableCell align='right'sx={{display:'flex',alignItems:'center',gap:'18px'}} >
-                   <Button type='add' onClick={onAddKurs} ></Button>
+                   <Button type='add' onClick={onAddKurs}></Button>
                     <Edit />
                     <Delete />
                 </TableCell>
@@ -39,11 +47,11 @@ function Row(props) {
                                         return(
                                         <TableRow sx={{
                                             display:'flex',
-                                            border:'1px solid red',background: '#FFFFFF',
+                                            background: '#FFFFFF',
                                             border: '1px solid #e5f2ff',
                                             padding:'10px 24px',
                                             width:'100%',
-                                            margin:'5px',
+                                            margin:'5px'
                                         }} key={rw.date}>
                                             <TableCell  sx={{borderBottom:'0',flex:'1',display:'flex',flexDirection:"column",gap:'5px'}}>
                                             <Title>{rw.level}</Title>
