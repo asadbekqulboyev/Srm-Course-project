@@ -87,9 +87,7 @@ export const Fields = () => {
         <Container>
             <AllLidsModal open={modalOpen} data={modalProps} onClose={onToggleModal} onSave={onSave} />
             <BreadCrumbs>
-                {/* <GenericButton type='filter' onClick={() => setOpen(!open)} >Filter</GenericButton> */}
-                {/* <GenericButton type='import'>import</GenericButton> */}
-                <GenericButton type='add' onClick={onToggleModal} >Hona Qo'shish</GenericButton>
+                <GenericButton type='add' onClick={onToggleModal} >Yo'nalish Qo'shish</GenericButton>
             </BreadCrumbs>
             <GenericTable open={open} headCells={headCells} rows={rows} checkbox={false}>
                

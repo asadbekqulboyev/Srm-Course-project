@@ -9,7 +9,7 @@ export function Modal(props) {
                 {props?.children}
                 <Footer>
                     {props?.onClose && <GenericButton onClick={props.onClose} type='delete'> O'chirish</GenericButton>}
-                    {props?.onSave && <GenericButton onClick={props?.Save} type='add'> Saqlash</GenericButton>}
+                    {props?.onSave && <GenericButton onClick={props?.onSave} type='add'> Saqlash</GenericButton>}
                 </Footer>
 
 

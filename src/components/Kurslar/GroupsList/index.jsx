@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import GenericTable from '../../Generics/Table';
 import { Action, Container } from "./style"
 import BreadCrumbs from "../../Generics/BreadCrumbs";
 import GenericButton from "../../Generics/Button";
