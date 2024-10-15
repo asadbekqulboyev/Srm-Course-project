@@ -15,7 +15,10 @@ flex-direction: column;
 }
 }
 `;
-export const Body = styled.div``;
+export const Body = styled.div`
+padding: 0 31px 31px 31px;
+border-left: 1px solid #F8FAFC;
+`;
 export const Link = styled(NavLink)`
 display: flex;
 align-items: center;
