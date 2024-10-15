@@ -37,7 +37,9 @@ color: #fff;
 font-family: 'Montserrat';
 font-size: 14px;
 font-weight: 550;
-
+width: fit-content;
+margin-left:${({ml})=>ml?ml+'px':''};
+margin-top:${({mt})=>mt?mt+'px':''};
 `
 Button.Filter = styled(Button)`
 background: var(--Color);
