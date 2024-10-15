@@ -6,7 +6,6 @@ export const  Generics = () =>{
   const location = useLocation()
   return (
     <Container>
-      <BreadCrumbs />
       {location.pathname}
     </Container>
   )

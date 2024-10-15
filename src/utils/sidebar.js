@@ -23,21 +23,8 @@ import HodimlarView from "../view/HR/Hodimlar";
 import RolesView from "../view/HR/Roles";
 import GroupsListView from "../view/Kurslar/List";
 import FieldsView from "../view/Kurslar/Field";
-// import { AnalitikaView } from "../view/AnalitikaView";
-// import FirstClassView from "../view/Lids/First";
-// import AllLidsView from "../view/Lids/All";
-// import NewStudentView from "../view/Lids/New";
-// import { ArchiveStudentsView } from "../view/Students/Archive.jsx";
-// import { ActiveStudentsView } from "../view/Students/Active.jsx";
-// import { AllStudentsView } from "../view/Students/All.jsx";
-// import GuruhlarView from "../view/Guruhlar/Guruhlar.jsx";
-// // import { ScheduleView } from "../view/Guruhlar/Schedule.jsx";
-// import { RoomsView } from "../view/Guruhlar/Rooms.jsx";
-// import HodimlarView from "../view/HR/Hodimlar.jsx";
-// import RolesView from "../view/HR/Roles.jsx";
-// import ListView from "../view/Kurslar/List.jsx";
-// import FieldView from "../view/Kurslar/Field.jsx";
-// import UmumiyView from "../view/Sozlamalar/Umumiy.jsx";
+import UmumiyView from "../view/Sozlamalar/umumiy";
+
 
 const sidebar = [
   {
@@ -264,7 +251,7 @@ const sidebar = [
         parentID: 8,
         path: "/sozlamalar/umumiy/check",
         isPrivate: true,
-        element: Generics,
+        element: UmumiyView,
         role: ["admin", "manager"],
       },
       {
