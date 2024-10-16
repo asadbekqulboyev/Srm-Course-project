@@ -18,6 +18,7 @@ flex-direction: column;
 export const Body = styled.div`
 padding: 0 31px 31px 31px;
 border-left: 1px solid #F8FAFC;
+flex:1;
 `;
 export const Link = styled(NavLink)`
 display: flex;
