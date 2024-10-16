@@ -7,10 +7,12 @@ import Generics from '../view/Generics'
 import CheckView from '../view/Sozlamalar/Check'
 import FiliallarView from '../view/Sozlamalar/Filiallar'
 import XabarnomaView from '../view/Sozlamalar/Xabarnoma'
+import SorovnomaView from '../view/Sozlamalar/Sorovnoma'
+import CallConfigView from '../view/Sozlamalar/CallConfig'
 export const sozlamalar = [
     {id:1,icon:check,element:CheckView,path:'check',title:'Check'},
     {id:2,icon:filiallar,element:FiliallarView,path:'filiallar',title:'Filiallar'},
     {id:3,icon:sms,element:XabarnomaView,path:'xabarnomalar',title:'Xabarnomalar'},
-    {id:4,icon:sorov,element:Generics,path:'sorovnoma',title:'So\'rovnoma'},
-    {id:5,icon:call,element:Generics,path:'status',title:'Status'},
+    {id:4,icon:sorov,element:SorovnomaView,path:'sorovnoma',title:'So\'rovnoma'},
+    {id:5,icon:call,element:CallConfigView,path:'status',title:'Status'},
 ]
