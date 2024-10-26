@@ -5,6 +5,7 @@ import GenericTable from '../../../Generics/Table';
 import { Container } from './style';
 import { Status } from './style';
 import { CustomSwitch } from './style';
+import BreadCrumbs from '../../BreadCrumbs';
 export const Xabarnoma = () => {
     const [open,setOpen]=useState(false);
     const headCells = [
@@ -45,6 +46,7 @@ export const Xabarnoma = () => {
 
     return (
         <Container>
+             <BreadCrumbs/>
          <GenericTable width='100%'  open={open} headCells={headCells} rows={rows} checkbox={false} >
             </GenericTable>
         </Container>

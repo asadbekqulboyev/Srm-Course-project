@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
 display: flex;
 flex: 2;
+flex-direction: column;
 `
 export const Status = styled.span`
 color: #FAAD14;

@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import GenericTable from '../../../Generics/Table';
-// import BreadCrumbs from "../../../Generics/BreadCrumbs";
-// import GenericButton from "../../../Generics/Button";
 import { Container } from './style';
-import { CustomSwitch } from './style';
 import { Status } from './style';
+import BreadCrumbs from '../../BreadCrumbs';
+import GenericButton from '../../../Generics/Button';
+import SorovnomaModal from './modal';
 export const Sorovnoma = () => {
     const [open,setOpen]=useState(false);
     const headCells = [
@@ -38,10 +38,15 @@ export const Sorovnoma = () => {
             
         },
     ];
-
+    const onSave = ()=>{setOpen(false)}
+    const onClose = ()=>{setOpen(false)}
     return (
         <Container>
-         <GenericTable width='100%'  open={open} headCells={headCells} rows={rows} checkbox={false} >
+            <SorovnomaModal onSave={onSave} onClose={onClose} open={open}/>
+            <BreadCrumbs>
+                <GenericButton type='add' onClick={()=>setOpen(true)} >So’rovnoma qo’shish</GenericButton>
+            </BreadCrumbs>
+         <GenericTable width='100%'  headCells={headCells} rows={rows} checkbox={false} >
             </GenericTable>
         </Container>
     )
