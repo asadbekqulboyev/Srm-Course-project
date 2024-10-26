@@ -12,6 +12,7 @@ function Root() {
         <Container>
             <Routes>
                 <Route element={<Sidebar />}>
+                {/* Sozlamalar Umumiy */}
                     <Route element={<UmumiySidebar />}>
                         {sozlamalar.map((item) => {
                             const { element: Element } = item
@@ -47,9 +48,8 @@ function Root() {
                         )
                     )
                 })}
-                <Route path='/' element={<Navigate to={'/analitika'} />} />
-                <Route path='/sozlamalar/umumiy/' element={<Navigate to={'/sozlamalar/umumiy/check'} />} />
-                <Route path='*' element={<h1>404</h1>} />
+                <Route path="/" element={<Navigate to={"/analitika"} />} />
+                <Route path="*" element={<h1>404 not found</h1>} />
             </Routes>
         </Container>
     )
