@@ -24,6 +24,8 @@ import RolesView from "../view/HR/Roles";
 import GroupsListView from "../view/Kurslar/List";
 import FieldsView from "../view/Kurslar/Field";
 import UmumiyView from "../view/Sozlamalar/umumiy";
+import TolovlarView from "../view/Sozlamalar/Tolovlar";
+import ManagerView from "../view/Sozlamalar/manager";
 
 
 const sidebar = [
@@ -260,7 +262,7 @@ const sidebar = [
         path: "/sozlamalar/manager/tolovlar",
         parentID: 8,
         isPrivate: true,
-        element: Generics,
+        element: ManagerView,
         role: ["admin", "manager"],
       },
       {
@@ -269,7 +271,7 @@ const sidebar = [
         path: "/sozlamalar/ustoz/kpi",
         isPrivate: true,
         parentID: 8,
-        element: Generics,
+        element: 'Generics',
         role: ["admin", "manager"],
       },
       {
