@@ -3,7 +3,8 @@ import { Container, FileUpload, ImgBox } from './style'
 import SubTitle from '../../../Generics/SubTitle'
 import GenericInput from '../../../Generics/Input'
 import GenericSelect from '../../../Generics/Select'
-import GenericButton from '../../../Generics/Button'
+import GenericButton from '../../../Generics/Button';
+import BreadCrumbs from '../../BreadCrumbs'
 const Check = () => {
     const [url,setUrl] = useState('')
     const onUpload = (e)=>{
@@ -13,6 +14,7 @@ const Check = () => {
     }
   return (
     <Container>
+      <BreadCrumbs />
         <SubTitle color='#929FAF' mb={8}>Logo</SubTitle>
         <ImgBox url={url}>
         <FileUpload onChange={onUpload} type='file' />

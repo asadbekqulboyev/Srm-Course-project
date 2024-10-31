@@ -5,14 +5,15 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Checking from '../components/Guruhlar/Guruhlar/Checking';
 import UmumiySidebar from '../components/Sozlamalar/Umumiy/Sidebar';
-import { sozlamalar } from '../utils/sozlamalar';
+import { manager, sozlamalar } from '../utils/sozlamalar';
+import ManagerSidebar from '../components/Sozlamalar/Manager/Sidebar';
 
 function Root() {
     return (
         <Container>
             <Routes>
                 <Route element={<Sidebar />}>
-                {/* Sozlamalar Umumiy */}
+                    {/* Sozlamalar Umumiy */}
                     <Route element={<UmumiySidebar />}>
                         {sozlamalar.map((item) => {
                             const { element: Element } = item
@@ -24,6 +25,20 @@ function Root() {
 
                         }
                     </Route>
+                   
+                    {/* Sozlamalar Manager */}
+                    <Route element={<ManagerSidebar/>}>
+                        {manager.map((item) => {
+                            
+                            const { element: Element } = item
+                            return (
+                                <Route key={item.id} path={`/sozlamalar/manager/${item.path}/`} element={<Element />} />
+                            )
+
+                        })
+
+                        }
+                    </Route> 
                     <Route path={'/guruhlar/guruhlar/checking'} element={<Checking />} />
                     {sidebar.map((parent) => {
                         const ElementParent = parent.element
