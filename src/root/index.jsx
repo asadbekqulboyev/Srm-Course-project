@@ -5,8 +5,9 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Checking from '../components/Guruhlar/Guruhlar/Checking';
 import UmumiySidebar from '../components/Sozlamalar/Umumiy/Sidebar';
-import { manager, sozlamalar } from '../utils/sozlamalar';
+import { manager, sozlamalar, ustoz } from '../utils/sozlamalar';
 import ManagerSidebar from '../components/Sozlamalar/Manager/Sidebar';
+import UstozSidebar from '../components/Sozlamalar/Ustoz/Sidebar';
 
 function Root() {
     return (
@@ -39,6 +40,19 @@ function Root() {
 
                         }
                     </Route> 
+                    {/* Sozlamalar Ustoz */}
+                    <Route element={<UstozSidebar/>}>
+                        {ustoz.map((item) => {
+                            
+                            const { element: Element } = item
+                            return (
+                                <Route key={item.id} path={`/sozlamalar/ustoz/${item.path}/`} element={<Element />} />
+                            )
+
+                        })
+
+                        }
+                    </Route> 
                     <Route path={'/guruhlar/guruhlar/checking'} element={<Checking />} />
                     {sidebar.map((parent) => {
                         const ElementParent = parent.element
@@ -54,7 +68,7 @@ function Root() {
                                 <Route key={parent.id} path={parent.path} element={<ElementParent />} />
                             )
                     })}
-                </Route>
+                   </Route>
                 {sidebar.map((parent) => {
                     const ElementParent = parent.element
                     return (
