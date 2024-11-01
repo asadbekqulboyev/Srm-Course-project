@@ -10,6 +10,8 @@ import SorovnomaView from '../view/Sozlamalar/Sorovnoma'
 import CallConfigView from '../view/Sozlamalar/CallConfig'
 import TolovlarView from '../view/Sozlamalar/Tolovlar'
 import DarajalarView from '../view/Sozlamalar/Darajalar'
+import { KpiWiew } from '../view/Sozlamalar/KPI'
+import { OylikWiew } from '../view/Sozlamalar/Oylik'
 
 
 export const sozlamalar = [
@@ -22,4 +24,8 @@ export const sozlamalar = [
 export const manager = [
     {id:1,icon:check,element:TolovlarView,path:'tolovlar',title:'Tolovlar'},
     {id:2,icon:filiallar,element:DarajalarView,path:'darajalar',title:'Darajalar'}
+];
+export const ustoz = [
+    {id:1,icon:check,element:KpiWiew,path:'kpi',title:'Kpi'},
+    {id:2,icon:filiallar,element:OylikWiew,path:'oylik',title:'Oylik'}
 ];
