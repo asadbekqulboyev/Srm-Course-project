@@ -1,18 +1,18 @@
 import { Body, Container, Link, Sidebar, Wrapper } from './style'
-import { ustoz} from '../../../../utils/sozlamalar'
+import { student} from '../../../../utils/sozlamalar'
 import { Outlet } from 'react-router-dom'
 
-const UstozSidebar = () => {
+const StudentSidebar = () => {
   return (
     <Container>
       <Wrapper>
       <Sidebar>{
-          ustoz.map((item) => {
+          student.map((item) => {
             const { icon: Icon } = item
             return (
               <Link key={item.id}
-                to={`/sozlamalar/ustoz/${item?.path}`}
-                state={{ parent: ['Sozlamalar', 'Ustoz'], child: item.title }}
+                to={`/sozlamalar/student/${item?.path}`}
+                state={{ parent: ['Sozlamalar', 'Student'], child: item.title }}
               >
                 <Icon />
                 {item.title}
@@ -28,4 +28,4 @@ const UstozSidebar = () => {
   )
 }
 
-export default UstozSidebar;
+export default StudentSidebar;
