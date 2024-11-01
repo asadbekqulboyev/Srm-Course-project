@@ -12,6 +12,8 @@ import TolovlarView from '../view/Sozlamalar/Tolovlar'
 import DarajalarView from '../view/Sozlamalar/Darajalar'
 import { KpiWiew } from '../view/Sozlamalar/KPI'
 import { OylikWiew } from '../view/Sozlamalar/Oylik'
+import TolovlarStudentView from '../view/Sozlamalar/TolovlarStudent'
+import KategoryWiev from '../view/Sozlamalar/Kategoryalar'
 
 
 export const sozlamalar = [
@@ -29,3 +31,8 @@ export const ustoz = [
     {id:1,icon:check,element:KpiWiew,path:'kpi',title:'Kpi'},
     {id:2,icon:filiallar,element:OylikWiew,path:'oylik',title:'Oylik'}
 ];
+export const student = [
+    {id:1,icon:check,element:TolovlarStudentView,path:'tolovlar',title:'Tolovlar'},
+    {id:2,icon:filiallar,element:KategoryWiev,path:'kategory',title:'Kategoriya'}
+];
+
