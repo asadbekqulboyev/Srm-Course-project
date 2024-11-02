@@ -6,6 +6,8 @@ import Email from './Email'
 import { mediaIcon, privateData } from '../../utils/analitics'
 import Moliya from './Moliya'
 function Analitika() {
+  console.log(import.meta.env.VITE_BASE_URL);
+  
   return (
     <Container>
         <Title type='primary'>Analitika</Title>
