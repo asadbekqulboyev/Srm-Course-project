@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import SubTitle from '../Generics/SubTitle'
 import { Container,Wrapper ,Card,Section,Plus,Counter,Arrow,SubCard,FooterWrapper} from './style'
 import Title from '../Generics/Title'
 import Email from './Email'
 import { mediaIcon, privateData } from '../../utils/analitics'
 import Moliya from './Moliya'
+import { MentorContext } from '../../context/mentor'
 function Analitika() {
   console.log(import.meta.env.VITE_BASE_URL);
-  
+  const [state,dispatch] = useContext(MentorContext);
+  console.log(state)
   return (
     <Container>
         <Title type='primary'>Analitika</Title>
