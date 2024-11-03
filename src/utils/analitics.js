@@ -15,7 +15,7 @@ export const privateData = [
     title: "Talabalar",
     icon: talabalarIcon,
     img: talImg,
-    count: 285,
+    count: 'students',
   },
   {
     id: "mentors",
@@ -23,14 +23,14 @@ export const privateData = [
     icon: mentorIcon,
     img: mentorImg,
     percentage: "",
-    count:36,
+    count:"mentors",
   },
   {
     id: "filials",
     title: "Filiallar",
     icon: filialIcon,
     img: talabalarImg,
-    count:3
+    count:"filials"
   },
 ];
 export const mediaIcon = [
