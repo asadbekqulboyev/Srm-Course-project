@@ -1,11 +1,12 @@
-import MentorContext from "./mentor"
-import UserContext from "./user"
+import AnalyticsProvider from "./analystic"
+import MentorContext from "./moliya"
+import UserContext from "./emails"
 const provider = [
-    UserContext,MentorContext
+  UserContext, MentorContext, AnalyticsProvider
 ]
-const ContextProvider = ({children}) => {
+const ContextProvider = ({ children }) => {
   return (
-    provider.reduceRight((account,Provider)=><Provider>{account}</Provider>,children)
+    provider.reduceRight((account, Provider) => <Provider>{account}</Provider>, children)
   )
 }
 
