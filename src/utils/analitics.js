@@ -15,7 +15,7 @@ export const privateData = [
     title: "Talabalar",
     icon: talabalarIcon,
     img: talImg,
-    count: 'students',
+    count: "students",
   },
   {
     id: "mentors",

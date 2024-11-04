@@ -1,13 +1,14 @@
 import AnalyticsProvider from "./analystic"
-import MentorContext from "./moliya"
-import UserContext from "./emails"
+import EmailsProvider from "./emails"
+import MolyaProvider from "./moliya"
+
 const provider = [
-  UserContext, MentorContext, AnalyticsProvider
+  EmailsProvider,
+  AnalyticsProvider,MolyaProvider
 ]
 const ContextProvider = ({ children }) => {
-  return (
-    provider.reduceRight((account, Provider) => <Provider>{account}</Provider>, children)
-  )
+  return provider.reduceRight((account, Provider) => <Provider>{account}</Provider>, children)
+  
 }
 
 export default ContextProvider

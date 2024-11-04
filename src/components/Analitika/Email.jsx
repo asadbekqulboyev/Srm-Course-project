@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import SubTitle from '../Generics/SubTitle'
-import { email } from '../../mock/email'
 import { Info ,Section,Wrapper} from './emailStyle'
+import { EmailsContext } from '../../context/emails';
 
 function Email() {
+    const [email, dispatch] = useContext(EmailsContext);
+    const url = import.meta.env.VITE_BASE_URL;
+    useEffect(()=>{
+      // emails
+      fetch(`${url}/tabs/emails`)
+      .then(res=>res.json())
+      .then((res)=>{
+        dispatch({type:"get",payload:res})
+      })
+    },[])
   return (
     <Wrapper>
         {
-            email.map((eml)=>{
+            email?.map((eml)=>{
                 return(
                     <Info key={eml.id}>
                        <Section>

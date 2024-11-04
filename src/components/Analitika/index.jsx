@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import SubTitle from '../Generics/SubTitle'
 import { Container, Wrapper, Card, Section, Plus, Counter, Arrow, SubCard, FooterWrapper } from './style'
 import Title from '../Generics/Title'
@@ -6,18 +6,26 @@ import Email from './Email'
 import { mediaIcon, privateData } from '../../utils/analitics'
 import Moliya from './Moliya'
 import { AnalysticContext } from '../../context/analystic'
+// import { MolyaContext } from '../../context/moliya'
 function Analitika() {
   const [state, dispatch] = useContext(AnalysticContext);
+  // const [moliya, setMoliya] = useContext(MolyaContext);
   const url = import.meta.env.VITE_BASE_URL;
   useEffect(()=>{
+    // general
     fetch(`${url}/tabs/analytics_page`)
     .then(res=>res.json())
     .then(([res])=>{
-      dispatch({type:'get',payload:res})
-    }
-    )
+      dispatch({type:"get",payload:res})
+    })
+    // molya
+    fetch(`${url}/tabs/moliya`)
+    .then(res=>res.json())
+    .then(([res])=>{
+      dispatch({type:"get",payload:res})
+    })
   },[])
-  console.log(state, 'state');
+  console.log(state);
   
   return (
     <Container>

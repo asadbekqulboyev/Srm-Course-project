@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import SubTitle from '../Generics/SubTitle'
 import {  Wrapper,Fragment,ArrowIcon, DateCard } from './moliyaStyle'
 import useDate, { weeks } from '../../hooks/date'
+import { MolyaContext } from '../../context/moliya'
 
 function Moliya() {
   const date = useDate()
@@ -19,6 +20,16 @@ function Moliya() {
   const onClickBackward = ()=>{
     changeWeek(weekCount-2)
   }
+  const [moliya, dispatch] = useContext(MolyaContext);
+  const url = import.meta.env.VITE_BASE_URL;
+  useEffect(()=>{
+    // molya
+    fetch(`${url}/tabs/moliya`)
+    .then(res=>res.json())
+    .then(([res])=>{
+      dispatch({type:"get",payload:res})
+    })
+  },[])
   return (
     <Wrapper>
       <Fragment>
