@@ -1,8 +1,8 @@
 import { createContext, useReducer } from 'react'
 import { initialState,reducer } from './reducer'
-const Emails = createContext()
-const EmailsContext = ({children}) => { 
+export const EmailsContext = createContext()
+const EmailsProvider = ({children}) => { 
     const [state , dispatch] =useReducer(reducer, initialState)
-  return ( <Emails.Provider value={[state,dispatch]}>{children}</Emails.Provider> )
+  return ( <EmailsContext.Provider value={[state,dispatch]}>{children}</EmailsContext.Provider> )
 }
-export default EmailsContext
+export default EmailsProvider
