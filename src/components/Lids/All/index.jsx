@@ -1,14 +1,25 @@
-import {useState}from 'react'
+import {useContext, useEffect, useState}from 'react'
 import { GenericTable } from "../../Generics/Table"
 import { Action, Container } from "./style"
 import BreadCrumbs from "../../Generics/BreadCrumbs";
 import GenericButton from "../../Generics/Button";
 import AllLidsModal from "./modal";
 import GenericSelect from '../../Generics/Select';
+import { useFetch } from '../../../hooks/useFetch';
+import { StudentsContext } from '../../../context/students';
 export const Allids = () => {
     const [open, setOpen]= useState(false)
     const [modalOpen, setModal]= useState(false)
     const [modalProps,setModalProps]=useState({})
+    const [state,dispatch]=useContext(StudentsContext)
+    const request = useFetch()
+    const getStudent = async ()=>{
+        let res = await request('/tabs/students');
+        dispatch({type:"get",payload:res})
+    }
+    useEffect(()=>{
+        getStudent()
+    },[])
     const rows = [
         { id: 'name',name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin',  label: 'O’quvchining ismi',
         days:'Toq Kunlar',lavel:'Beginner'
@@ -32,19 +43,23 @@ export const Allids = () => {
         setModalProps(res)
         
     }
-    const onMove = (e)=>{
-        
+    const onMove = (e,value)=>{
+        e.stopPropagation();
+        request(`/tabs/studentd/id/*${value.id}*`,{method:"DELETE"}).then((rs)=>{
+            console.log(rs)
+            getStudent()
+        })
     }
     const headCells = [
         { id: 'name', label: 'O’quvchining ismi' },
-        { id: 'group', label: 'Guruh / Fan' },
-        { id: 'date', label: 'Dars kuni va vaqti' },
-        { id: 'addedDate', label: 'Qo’shilgan sana' },
+        { id: 'field', label: 'Guruh / Fan' },
+        { id: 'days', label: 'Dars kuni va vaqti' },
+        { id: 'added_date', label: 'Qo’shilgan sana' },
         { id: 'admin', label: 'Moderator'},
         { id: 'action', label:'',render:(res)=>( 
         <Action>
         <Action.Edit onClick={(e)=>onEdit(e,res)}/>
-        <Action.Move onClick={onMove}/>
+        <Action.Move onClick={(e)=>onMove(e,res)}/>
         </Action>
         )}
     ]
@@ -70,7 +85,7 @@ export const Allids = () => {
             <GenericButton type='delete'>O'chirish</GenericButton> */}
             <GenericButton type='add' onClick={onToggleModal} >Buyurtma Qo'shish</GenericButton>
             </BreadCrumbs>
-            <GenericTable open={open}  headCells={headCells} rows={rows}>
+            <GenericTable open={open}  headCells={headCells} rows={state}>
             <GenericSelect data={data1}/>
             </GenericTable>
         </Container>

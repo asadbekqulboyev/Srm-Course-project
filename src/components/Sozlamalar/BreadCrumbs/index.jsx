@@ -16,7 +16,6 @@ function BreadCrumbs({children}) {
         
         
       path?.map((value) => {
-        console.log(location)
         return (
           <Title key={value}>{value} <Arrow /></Title>
         )

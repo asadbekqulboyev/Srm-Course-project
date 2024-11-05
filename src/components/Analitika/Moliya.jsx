@@ -34,8 +34,6 @@ function Moliya() {
       dispatch({type:"get",payload:res})
     });
   },[])
-  console.log(state);
-  
   return (
     <Wrapper>
       <Fragment>
@@ -49,7 +47,6 @@ function Moliya() {
         {state.map((value)=>{
       let date = new Date(value.day)
       const ac= value.today== active
-      console.log(value);
       
       return( 
         
