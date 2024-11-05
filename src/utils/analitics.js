@@ -33,32 +33,14 @@ export const privateData = [
     count:"filials"
   },
 ];
-export const mediaIcon = [
-  {
-    id: 1,
-    title: "Instagram",
-    icon: inIcon,
-    count: 285,
-  },
-  {
-    id: 2,
-    title: "Telegram",
-    icon: tgIcon,
-    count:36,
-  },
-  {
-    id:3,
-    title: "You Tube",
-    icon: ytIcon,
-    count:3
-  },  
-  {
-    id:4,
-    title: "Linkedin",
-    icon: lnIcon,
-    count:3
-  },
-]
+export const mediaIcon = {
+1:inIcon, 
+2:tgIcon,   
+3:ytIcon ,
+4:lnIcon,
+5:lnIcon,
+}    
+
   //   1: inIcon,
   // 2: tgIcon,
   // 3: ytIcon,

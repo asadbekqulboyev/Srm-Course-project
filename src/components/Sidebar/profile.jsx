@@ -6,8 +6,8 @@ function Profile() {
     <ProfileContainer>
         <ProfileContainer.Img src={nImg} alt='profile img'/>
         <div>
-            <ProfileContainer.Name>Sardorbek Muhtorov</ProfileContainer.Name>
-            <ProfileContainer.Email>s.muhtorov@gmail.com </ProfileContainer.Email>
+            <ProfileContainer.Name>Asadbek</ProfileContainer.Name>
+            <ProfileContainer.Email>asadbek@gmail.com </ProfileContainer.Email>
         </div>
     </ProfileContainer>
   )

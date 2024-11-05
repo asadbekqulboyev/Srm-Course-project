@@ -32,4 +32,5 @@ flex-direction:column;
 justify-content: center;
 cursor: pointer;
 align-items: center;
+padding: 20px;
 `

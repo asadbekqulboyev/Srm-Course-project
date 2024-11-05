@@ -7,11 +7,12 @@ import { MolyaContext } from '../../context/moliya'
 function Moliya() {
   const date = useDate()
   const [active, setActive]=useState(new Date().getDate())
-  const [weekCount, changeWeek]=useState(0)
+  const [weekCount, changeWeek]=useState(0);
+  const [today,setToday]=useState({})
   const clickDate = (value)=>{
-    if(date.week(weekCount)[0].getDate()==value.getDate()) changeWeek(weekCount - 1)
-      else if(date.week(weekCount)[6].getDate()==value.getDate()) changeWeek(weekCount + 1)
-   setActive(value.getDate())
+    let [tdy] = state.filter((val) => val.today == value);
+    setToday(tdy);
+    setActive(value);
   }
 
   const onClickForward = ()=>{
@@ -20,16 +21,21 @@ function Moliya() {
   const onClickBackward = ()=>{
     changeWeek(weekCount-2)
   }
-  const [moliya, dispatch] = useContext(MolyaContext);
+  const [state, dispatch] = useContext(MolyaContext);
   const url = import.meta.env.VITE_BASE_URL;
   useEffect(()=>{
     // molya
     fetch(`${url}/tabs/moliya`)
     .then(res=>res.json())
-    .then(([res])=>{
+    .then((res)=>{
+      let date = new Date().getDate();
+      let [tdy]=res.filter((val)=>val.today == date)
+      setToday(tdy)
       dispatch({type:"get",payload:res})
-    })
+    });
   },[])
+  console.log(state);
+  
   return (
     <Wrapper>
       <Fragment>
@@ -40,29 +46,33 @@ function Moliya() {
       <ArrowIcon onClick={onClickBackward} />
       </Fragment>
       <Fragment mt='16px' mb='16px'>
-        {date?.week(weekCount)?.map((value)=>{
-      const ac= active== value.getDate()
+        {state.map((value)=>{
+      let date = new Date(value.day)
+      const ac= value.today== active
+      console.log(value);
+      
       return( 
-          <DateCard active = {ac} key={value} onClick={()=>clickDate(value)}>
-            <SubTitle size={14} color={ac&&'#fff'}>{weeks[value.getDay()]?.short}</SubTitle> 
-            <SubTitle size={14} color={ac&&'#fff'}>{value.getDate()}</SubTitle>
+        
+          <DateCard active = {ac} key={value} onClick={()=>clickDate(value.today)}>
+            <SubTitle size={14} color={ac&&'#fff'}> {weeks[date.getDay()]?.short}</SubTitle>
+            <SubTitle size={14} color={ac&&'#fff'}> {value.today}</SubTitle>
           </DateCard>
         )})}
       </Fragment>
       <SubTitle color='#929FAF'>
         {date.date} - {date?.month?.full} {date.year}
       </SubTitle>
-      <SubTitle size={32} mt={10} mb={20}>8 520 000 <SubTitle size={24} color='#53c41a' ml={16}>+22%</SubTitle> </SubTitle>
+      <SubTitle size={32} mt={10} mb={20}>{today.students}<SubTitle size={24} color='#53c41a' ml={16}>+22%</SubTitle> </SubTitle>
       <Fragment>
         <div>Talabalar</div>
         <SubTitle>
-          5 760 00
+         {today.video}
         </SubTitle>
       </Fragment>
       <Fragment>
         <div>Darsliklar Sotuvi</div>
         <SubTitle>
-          2 760 00
+          {today.students}
         </SubTitle>
       </Fragment>
     </Wrapper>
