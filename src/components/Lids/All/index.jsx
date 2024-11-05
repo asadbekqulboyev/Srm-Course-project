@@ -7,13 +7,23 @@ import AllLidsModal from "./modal";
 import GenericSelect from '../../Generics/Select';
 import { useFetch } from '../../../hooks/useFetch';
 import { StudentsContext } from '../../../context/students';
+import useQuery from '../../../hooks/useQuery';
+import { replace, useLocation, useNavigate } from 'react-router-dom';
+import GenriscInput from '../../Generics/Input';
 export const Allids = () => {
     const [open, setOpen]= useState(false)
     const [spinner, setSpinner]= useState(false)
     const [modalOpen, setModal]= useState(false)
     const [modalProps,setModalProps]=useState({})
     const [state,dispatch]=useContext(StudentsContext)
+    const location=useLocation()
+    const query  =useQuery()  
+    const navigate = useNavigate()
     const request = useFetch()
+    const [filter,setFilter]=useState({
+        name:query.get('name')||'',
+        group:query.get('group')
+    })
     const getStudent = async ()=>{
         setSpinner(true)
         let res = await request('/tabs/students');
@@ -62,6 +72,12 @@ export const Allids = () => {
     const data1=[
         
     ]
+    const onChangeFilter = ({target})=>{
+        const {value,name}=target
+        setFilter({...filter,[name]:value})
+   navigate(`${location.pathname}${replace(value.name)}`) 
+}
+    
     return (
 
         <Container>
@@ -72,6 +88,21 @@ export const Allids = () => {
             <GenericButton type='add' onClick={onToggleModal} >Buyurtma Qo'shish</GenericButton>
             </BreadCrumbs>
             <GenericTable open={open}  headCells={headCells} rows={state} spinner={spinner}>
+            <GenriscInput 
+            value={filter.name}
+            name='name'
+            onClick={onChangeFilter}
+            />
+            <GenriscInput 
+            value={filter.group}
+            name='group'
+            onClick={onChangeFilter}
+            />
+            <GenriscInput 
+            value={filter.group}
+            />
+            <GenericSelect data={data1}/>
+            <GenericSelect data={data1}/>
             <GenericSelect data={data1}/>
             </GenericTable>
         </Container>
