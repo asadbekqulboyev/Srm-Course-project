@@ -9,34 +9,22 @@ import { useFetch } from '../../../hooks/useFetch';
 import { StudentsContext } from '../../../context/students';
 export const Allids = () => {
     const [open, setOpen]= useState(false)
+    const [spinner, setSpinner]= useState(false)
     const [modalOpen, setModal]= useState(false)
     const [modalProps,setModalProps]=useState({})
     const [state,dispatch]=useContext(StudentsContext)
     const request = useFetch()
     const getStudent = async ()=>{
+        setSpinner(true)
         let res = await request('/tabs/students');
         dispatch({type:"get",payload:res})
+        setSpinner(false)
+
     }
     useEffect(()=>{
         getStudent()
     },[])
-    const rows = [
-        { id: 'name',name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin',  label: 'O’quvchining ismi',
-        days:'Toq Kunlar',lavel:'Beginner'
-         },
-        { id: 'group',name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin',  label: 'Guruh / Fan',
-        days:'Toq Kunlar'
-         },
-        { id: 'date',name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404', admin:'Admin', label: 'Dars kuni va vaqti',
-        days:'Juft Kunlar',lavel:'Junior'
-         },
-        { id: 'addedDate', name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin', label: 'Qo’shilgan sana',
-        days:'Juft Kunlar',lavel:'Beginner'
-         },
-        { id: 'admin', name:'Webbrain', group:'front-end', date:'21.21.2002', addedDate:'21.04.2404',admin:'Admin', label: 'Moderator',
-        days:'Toq Kunlar',lavel:'Advanced'
-         }
-      ];
+
     const onEdit = (e,res)=>{
         e.stopPropagation()
         setModal(!modalOpen)
@@ -44,10 +32,11 @@ export const Allids = () => {
         
     }
     const onMove = (e,value)=>{
+        setSpinner(true)
         e.stopPropagation();
         request(`/tabs/studentd/id/*${value.id}*`,{method:"DELETE"}).then((rs)=>{
-            console.log(rs)
             getStudent()
+            setSpinner(false)
         })
     }
     const headCells = [
@@ -80,12 +69,9 @@ export const Allids = () => {
             <BreadCrumbs>
             <GenericButton type='filter'  onClick={()=>setOpen(!open)} >Filter</GenericButton>
             <GenericButton type='import'>import</GenericButton>
-            {/* <GenericButton type='primary'>import</GenericButton>
-            <GenericButton type='save'>Saqlash</GenericButton>
-            <GenericButton type='delete'>O'chirish</GenericButton> */}
             <GenericButton type='add' onClick={onToggleModal} >Buyurtma Qo'shish</GenericButton>
             </BreadCrumbs>
-            <GenericTable open={open}  headCells={headCells} rows={state}>
+            <GenericTable open={open}  headCells={headCells} rows={state} spinner={spinner}>
             <GenericSelect data={data1}/>
             </GenericTable>
         </Container>
