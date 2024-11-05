@@ -3,30 +3,38 @@ import SubTitle from '../Generics/SubTitle'
 import { Container, Wrapper, Card, Section, Plus, Counter, Arrow, SubCard, FooterWrapper } from './style'
 import Title from '../Generics/Title'
 import Email from './Email'
-import { mediaIcon, privateData } from '../../utils/analitics'
+import {mediaIcon, privateData } from '../../utils/analitics'
 import Moliya from './Moliya'
 import { AnalysticContext } from '../../context/analystic'
+import { EmailsContext } from '../../context/emails'
+import { MediaContext } from '../../context/media'
 // import { MolyaContext } from '../../context/moliya'
 function Analitika() {
   const [state, dispatch] = useContext(AnalysticContext);
-  // const [moliya, setMoliya] = useContext(MolyaContext);
+  const [media, mediaDispatch] = useContext(MediaContext);
+  const [email] = useContext(EmailsContext);
+
   const url = import.meta.env.VITE_BASE_URL;
-  useEffect(()=>{
-    // general
+  const getAnalystic = ()=>{
     fetch(`${url}/tabs/analytics_page`)
     .then(res=>res.json())
     .then(([res])=>{
       dispatch({type:"get",payload:res})
     })
-    // molya
-    fetch(`${url}/tabs/moliya`)
+  }
+  const getMedia = ()=>{
+    fetch(`${url}/tabs/media`)
     .then(res=>res.json())
-    .then(([res])=>{
-      dispatch({type:"get",payload:res})
+    .then((res)=>{
+      mediaDispatch({type:"get",payload:res})
     })
+  }
+  useEffect(()=>{
+    // general
+    getAnalystic();
+    getMedia()
+ 
   },[])
-  console.log(state);
-  
   return (
     <Container>
       <Title type='primary'>Analitika</Title>
@@ -61,13 +69,13 @@ function Analitika() {
         Ijtimoiy tarmoqlar
       </SubTitle>
       <Wrapper mt={16} gap={24}>
-        {mediaIcon?.map((value) => {
-          const { icon: Icon } = value
+        {media?.map((value,i) => {
+          const { [i+1]: Icon } = mediaIcon;
           return (
             <SubCard key={value.id} gap={24} title={value.title}>
               <Section gap={24}>
                 <Section gap={10} title={value.title}>
-                  <Icon className='subicon' />
+                  {Icon&& <Icon className='subicon' /> }
                   <SubTitle>
                     {value.title}
                   </SubTitle>
@@ -79,7 +87,7 @@ function Analitika() {
                     <Arrow />
                     22%
                   </Title>
-                  <Counter >{value.count}K</Counter>
+                  <Counter >{(Number(value.subscribers) / 1000).toFixed(2)}K</Counter>
                 </Section>
               </Section>
             </SubCard>
@@ -89,7 +97,7 @@ function Analitika() {
 
       <FooterWrapper>
         <FooterWrapper.Email>
-          <SubTitle mt={24} count={12} mb={12}>
+          <SubTitle mt={24} count={email.length} mb={12}>
             Ijtimoiy tarmoqlar
           </SubTitle>
           <Email />

@@ -4,7 +4,7 @@ import { Info ,Section,Wrapper} from './emailStyle'
 import { EmailsContext } from '../../context/emails';
 
 function Email() {
-    const [email, dispatch] = useContext(EmailsContext);
+    const [state, dispatch] = useContext(EmailsContext);
     const url = import.meta.env.VITE_BASE_URL;
     useEffect(()=>{
       // emails
@@ -17,7 +17,7 @@ function Email() {
   return (
     <Wrapper>
         {
-            email?.map((eml)=>{
+            state?.map((eml)=>{
                 return(
                     <Info key={eml.id}>
                        <Section>
