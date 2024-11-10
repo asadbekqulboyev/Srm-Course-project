@@ -81,9 +81,8 @@ export const Allids = () => {
         setModalProps(null)
     }
     const onSave = () => {
+        setOpen(false)
     }
-    const data1 = [
-    ]
     const onChangeFilter = ({ target }) => {
         const { value, name } = target
         setFilter({ ...filter, [name]: value });
