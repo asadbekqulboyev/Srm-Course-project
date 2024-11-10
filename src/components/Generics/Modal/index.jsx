@@ -11,10 +11,9 @@ export function Modal(props) {
                     {props?.onClose && <GenericButton onClick={props.onClose} type='delete'> O'chirish</GenericButton>}
                     {props?.onSave && <GenericButton onClick={props?.onSave} type='add'> Saqlash</GenericButton>}
                 </Footer>
-
-
-
-            </Wrapper></Container>, document.getElementById('modal')) : ''
+            </Wrapper>
+        </Container>, 
+        document.getElementById('modal')) : ''
 }
 
 export default Modal

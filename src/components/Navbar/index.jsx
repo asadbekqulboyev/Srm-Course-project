@@ -13,7 +13,7 @@ function Navbar() {
   return (
     <Container>
       <InputWrapper>
-      <Input placeholder='Search' borderRadius={8} iconLeft={<SearchIcon/>}/>
+      <Input type='text' placeholder='Search' style={{borderLeft:'0px',borderRadius:'0 8px 8px 0px'}} borderRadius={8} iconLeft={<SearchIcon/>}/>
       </InputWrapper>
       <Section>
      
