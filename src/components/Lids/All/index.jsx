@@ -16,6 +16,7 @@ import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import moment from 'moment';
+import { Box } from '@mui/material';
 export const Allids = () => {
     const [open, setOpen] = useState(false)
     const [spinner, setSpinner] = useState(false)
@@ -117,15 +118,17 @@ export const Allids = () => {
                     name='name'
                     placeholder='Name'
                     onChange={onChangeFilter}
+                    style={{flex:'0 0 auto'}}
                 />
 
-                <GenericSelect name='field' data={groups} onChange={onChangeFilter}/>
+                <GenericSelect name='field' data={groups} onChange={onChangeFilter} sx={{flex:'0 0 auto'}}/>
                 <GenriscInput
                     type='text'
                     value={filter.week}
                     name='name'
                     placeholder='Name'
                     onChange={onChangeFilter}
+                    style={{flex:'0 0 auto'}}
                 />
                 {/* <LocalizationProvider dateAdapter={AdapterMoment}>
                 <DatePicker
@@ -139,17 +142,20 @@ export const Allids = () => {
                     }}
                 />
             </LocalizationProvider> */}
+            <Box >
                 <LocalizationProvider dateAdapter={AdapterDayjs} style={{ top: '-16px' }}>
                     <DatePicker
-                        style={{ padding: '0', width: '270px', flex: '0 0 auto' }}
                     />
                 </LocalizationProvider>
+            </Box>
+                
                 <GenriscInput
                     type='text'
                     value={filter.admin}
                     name='admin'
                     placeholder='moderator'
                     onChange={onChangeFilter}
+                    style={{flex:'0 0 auto'}}
                 />
                 {/* <GenericSelect name='days' data={data1} />
                 <GenericSelect name='admin' data={data1} />

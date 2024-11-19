@@ -26,6 +26,7 @@ import FieldsView from "../view/Kurslar/Field";
 import UmumiyView from "../view/Sozlamalar/umumiy";
 import TolovlarView from "../view/Sozlamalar/Tolovlar";
 import ManagerView from "../view/Sozlamalar/manager";
+import { LoginView } from "../view/LoginWiew";
 
 
 const sidebar = [
@@ -290,7 +291,7 @@ const sidebar = [
     title: "Log In",
     path: "/login",
     isPrivate: true,
-    element: Generics,
+    element: LoginView,
     hidden: true,
   },
   {
