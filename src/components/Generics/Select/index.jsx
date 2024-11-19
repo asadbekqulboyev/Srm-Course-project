@@ -20,7 +20,7 @@ const {data,width,onChange,name=''}=props
         name={name}
       >
         {data.map((item)=>(
-          <MenuItem key={item?.value} sx={{fontSize:'14px'}} value={item?.value}>{item?.title}</MenuItem>
+          <MenuItem key={item.value} sx={{fontSize:'14px'}} value={item?.value}>{item?.title}</MenuItem>
         ))}
       </Select>
     </FormControl>  
