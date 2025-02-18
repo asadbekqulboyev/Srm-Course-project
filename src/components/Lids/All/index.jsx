@@ -15,7 +15,6 @@ import { groups } from '../../../utils/groups';
 import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import moment from 'moment';
 import { Box } from '@mui/material';
 export const Allids = () => {
     const [open, setOpen] = useState(false)
@@ -50,7 +49,7 @@ export const Allids = () => {
         e.stopPropagation()
         setModal(!modalOpen)
         setModalProps(res)
-
+        
     }
     const onMove = (e, value) => {
         setSpinner(true)
@@ -67,8 +66,7 @@ export const Allids = () => {
         { id: 'days', label: 'Dars kuni va vaqti' },
         { id: 'added_date', label: 'Qo’shilgan sana' },
         { id: 'admin', label: 'Moderator' },
-        {
-            id: 'action', label: '', render: (res) => (
+        {id: 'action', label: '', render: (res) => (
                 <Action>
                     <Action.Edit onClick={(e) => onEdit(e, res)} />
                     <Action.Move onClick={(e) => onMove(e, res)} />
@@ -81,9 +79,9 @@ export const Allids = () => {
         setModal(!modalOpen)
         setModalProps(null)
     }
-    const onSave = () => {
-        setOpen(false)
-    }
+    // const onSave = () => {
+    //     setOpen(false)
+    // }
     const onChangeFilter = ({ target }) => {
         const { value, name } = target
         setFilter({ ...filter, [name]: value });
@@ -93,19 +91,19 @@ export const Allids = () => {
     }
         
 
-    const setSelectedDate = (date) => {
-        const time = moment(date);
-        const formattedDate = time.isValid() ? `${time.date()}/${time.month() + 1}/${time.year()}` : null;
-        setFilter({ ...filter, date: formattedDate });
-        const query = useReplace(formattedDate, 'date');
-        navigate(`${location.pathname}${query}`);
+    // const setSelectedDate = (date) => {
+    //     const time = moment(date);
+    //     const formattedDate = time.isValid() ? `${time.date()}/${time.month() + 1}/${time.year()}` : null;
+    //     setFilter({ ...filter, date: formattedDate });
+    //     const query = useReplace(formattedDate, 'date');
+    //     navigate(`${location.pathname}${query}`);
 
-    //     // O'quvchilarni qidirish
-        getStudent(`/search${query}`);
-    };
+    // //     // O'quvchilarni qidirish
+    //     getStudent(`/search${query}`);
+    // };
     return (
         <Container>
-            <AllLidsModal open={modalOpen} data={modalProps} onClose={onToggleModal} onSave={onSave} />
+            <AllLidsModal open={modalOpen} data={modalProps} onClose={onToggleModal}  reload={getStudent}/>
             <BreadCrumbs>
                 <GenericButton type='filter' onClick={() => setOpen(!open)} >Filter</GenericButton>
                 <GenericButton type='import'>import</GenericButton>
@@ -130,25 +128,11 @@ export const Allids = () => {
                     onChange={onChangeFilter}
                     style={{flex:'0 0 auto'}}
                 />
-                {/* <LocalizationProvider dateAdapter={AdapterMoment}>
-                <DatePicker
-                    value={moment}
-                    onChange={setSelectedDate}
-                    slotProps={{ textField: { size: 'small' } }}
-                    componentsProps={{
-                        actionBar: {
-                            actions: ['clear']
-                        }
-                    }}
-                />
-            </LocalizationProvider> */}
-            <Box >
+              <Box>
                 <LocalizationProvider dateAdapter={AdapterDayjs} style={{ top: '-16px' }}>
-                    <DatePicker
-                    />
+                    <DatePicker/>
                 </LocalizationProvider>
-            </Box>
-                
+               </Box>
                 <GenriscInput
                     type='text'
                     value={filter.admin}
@@ -157,9 +141,6 @@ export const Allids = () => {
                     onChange={onChangeFilter}
                     style={{flex:'0 0 auto'}}
                 />
-                {/* <GenericSelect name='days' data={data1} />
-                <GenericSelect name='admin' data={data1} />
-                <GenericSelect name='date' data={data1} /> */}
             </GenericTable>
         </Container>
     )

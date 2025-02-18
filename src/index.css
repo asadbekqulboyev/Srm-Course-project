@@ -18,17 +18,34 @@ body {
 }
 
  #demo-simple-select{
+  opacity: 1;
+  height: 100%;
   padding:10px 16px 10px;
 }
 .MuiInputBase-input{
   padding: 10px !important;
 }
+.css-yf8vq0-MuiSelect-nativeInput{
+color: #253E5F !important;
+font-size: 16px;
+font-weight: 500;
+font-family: 'Montserrat';
+line-height: 24px;
+text-align: left;
+opacity: 2121 !important;
+height: 100%;
+padding-left: 8px;
+border: 1px solid #1890FF;
+border-radius: 8px;
+outline: none;
+overflow: hidden;
+}
 
 .Input{
   border: 1px solid #1890FF !important;
-  /* padding:8px 16px 8px 16px !important;   */
   width: 100% !important;
   transition: all .2s linear;
+  overflow: hidden;
 }
 .Input:focus{
   box-shadow: 0px 0px 0px 4px #E6F7FF;
