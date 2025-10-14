@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+  --Color:#253E5F;
+  --ActiveColor:#1890FF;
+  --GrayColor:#BBC3CD;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #FAFAFA;
+  font-family: 'Montserrat';
+  color: var(--Color);
+}
+
+ #demo-simple-select{
+  opacity: 1;
+  height: 100%;
+  padding:10px 16px 10px;
+}
+.MuiInputBase-input{
+  padding: 10px !important;
+}
+.css-yf8vq0-MuiSelect-nativeInput{
+color: #253E5F !important;
+font-size: 16px;
+font-weight: 500;
+font-family: 'Montserrat';
+line-height: 24px;
+text-align: left;
+opacity: 2121 !important;
+height: 100%;
+padding-left: 8px;
+border: 1px solid #1890FF;
+border-radius: 8px;
+outline: none;
+overflow: hidden;
+}
+
+.Input{
+  border: 1px solid #1890FF !important;
+  width: 100% !important;
+  transition: all .2s linear;
+  overflow: hidden;
+}
+.Input:focus{
+  box-shadow: 0px 0px 0px 4px #E6F7FF;
+background-color: #4e8cde67;
+}
